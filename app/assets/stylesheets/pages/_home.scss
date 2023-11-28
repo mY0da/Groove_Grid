@@ -1,1 +1,36 @@
 // Specific CSS for your home-page
+
+.main-container {
+  background-image: asset-url('Design/Abstract.gif');
+  background-size: cover;
+  background-position: center;
+}
+
+.container-content {
+padding: 200px;
+color: white;
+}
+
+.btn-flat {
+  color: #670BFF;
+  padding: 8px 24px;
+  border-radius: 50px;
+  background: white;
+  transition: background 0.3s ease;
+}
+
+
+.h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.h3 {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
