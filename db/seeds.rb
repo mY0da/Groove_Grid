@@ -1,9 +1,29 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+rspotify = RSpotify.authenticate(ENV["CLIENT_ID"], ENV["CLIENT_SECRET"])
+playlist = RSpotify::Playlist.find('hujfjm5lg1g6pdm9py6zcosyk', '4VqaukGDVsQaUm4A2L7c7j')
+
+puts 'Destroying old'
+
+Tag.destroy_all
+TagSong.destroy_all
+Playlist.destroy_all
+PlaylistSong.destroy_all
+Song.destroy_all
+Label.destroy_all
+Artist.destroy_all
+User.destroy_all
+
+puts 'Creating users'
+
+first_user = User.create!(username: 'martimtonic', first_name: 'Martim', last_name: 'Costa', email: 'mrtmtonic@gmail.com', password: 'Concha!95')
+
+puts 'Creating label'
+unknown_label = Label.create(name: "Unkown Label")
+
+puts 'Creating tracks'
+
+playlist.tracks.each do |track|
+  artist = Artist.create(name: track.artists.first.name)
+  Song.create(name: track.name, artist: artist, label: unknown_label, seconds: track.duration_ms / 1000, user: first_user)
+end
+
+puts 'Ta feito'
