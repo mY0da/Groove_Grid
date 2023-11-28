@@ -23,4 +23,24 @@ $border-radius:    2px;
 $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
+
+
+
+// Buttons & inputs' radius
+$border-radius:    2px;
+$border-radius-lg: 2px;
+$border-radius-sm: 2px;
+
 // Override other variables below!
+$custom-colors: (
+  "black-color": $black-color,
+  "dark-grey-color": $dark-grey-color,
+  "grey-color": $grey-color,
+  "light-grey-color":$light-grey-color,
+  "white-color":$white-color,
+  "Primary-lavender-1":$Primary-Lavender-1,
+  "Primary-lavender-2":$Primary-Lavender-2,
+  "Primary-lavender-3":$Primary-Lavender-3,
+  "Primary-lavender-4":$Primary-Lavender-4,
+  "Primary-lavender-5":$Primary-Lavender-5
+);
