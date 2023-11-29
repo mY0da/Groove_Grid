@@ -3,7 +3,9 @@
   <p>Artist: <%= @song.artist.name %></p>
   <p>Label: <%= @song.label.name %></p>
 
-  <%= cl_video_tag @song.audio_file.key, controls: true %>
+  <audio controls>
+    <source src="<%= cl_video_tag @song.audio_file.key, controls: true %>" type="audio/mp3">
+  </audio>
 
 <% else %>
   <p>Song not found</p>
