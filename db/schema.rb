@@ -44,6 +44,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_27_142952) do
   create_table "songs", force: :cascade do |t|
     t.string "name"
     t.integer "seconds"
+    t.integer "bpm"
+    t.string "scale"
     t.bigint "user_id", null: false
     t.bigint "artist_id", null: false
     t.bigint "label_id", null: false
