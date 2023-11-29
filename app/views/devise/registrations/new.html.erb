@@ -1,25 +1,25 @@
-<div style="width: 100%; height: 100%; flex-direction: column; justify-content: center; align-items: center; display: inline-flex">
-  <div style="width: 674px; height: 732px; background: rgba(28, 27, 23, 0.60); border-radius: 32px; border: 1px #CECECE solid; backdrop-filter: blur(32px)">
+<div class="mt-5 w-100 h-100 d-inline-flex flex-column justify-content-center align-items-center">
+  <div style="width: 674px; height: 80vh; background: rgba(28, 27, 23, 0.60); border-radius: 32px; border: 1px #CECECE solid; backdrop-filter: blur(32px)">
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
       <div class="container pt-5">
         <div class="row justify-content-center">
-          <div class="col-12 col-md-6 col-lg-4">
+          <div class="w-50 col-md-6 col-lg-4">
             <form class="row">
-              <h2 class="text-center mb-5" style="color: white; font-size: 64px; font-family: Raleway; font-weight: 500">Sign up</h2>
-              <div class="col-12 mb-3">
+              <h1 class="text-center mb-5" style="color: white; font-size: 50px; font-family: Raleway; font-weight: 500">Sign up</h1>
+              <div class="col-12 mb-5">
                 <%= f.label :username, class: "form-label", style: "color: #A2A5FC; font-size: 22px; font-family: Roboto; font-weight: 400; line-height: 35.20px"%>
                 <%= f.text_field :username, required: true, autofocus: true, class: "form-control", style: "border-radius: 32px; border: 1px #888888 solid; backdrop-filter: blur(12px)"%>
               </div>
-              <div class="col-12 mb-3">
+              <div class="col-12 mb-5">
                 <%= f.label :first_name, class: "form-label", style: "color: #A2A5FC; font-size: 22px; font-family: Roboto; font-weight: 400; line-height: 35.20px"%>
                 <%= f.text_field :first_name, required: true, autofocus: true, class: "form-control", style: "border-radius: 32px; border: 1px #888888 solid; backdrop-filter: blur(12px)"%>
               </div>
-              <div class="col-12 mb-3">
+              <div class="col-12 mb-5">
                 <%= f.label :last_name, class: "form-label", style: "color: #A2A5FC; font-size: 22px; font-family: Roboto; font-weight: 400; line-height: 35.20px"%>
                 <%= f.text_field :last_name, required: true, autofocus: true, class: "form-control", style: "border-radius: 32px; border: 1px #888888 solid; backdrop-filter: blur(12px)"%>
               </div>
-              <div class="col-12 mb-3">
+              <div class="col-12 mb-5">
                 <%= f.label :email, class: "form-label", style: "color: #A2A5FC; font-size: 22px; font-family: Roboto; font-weight: 400; line-height: 35.20px"%>
                 <%= f.text_field :email,
                         required: true,
@@ -28,36 +28,34 @@
                         class: "form-control",
                         style: "border-radius: 32px; border: 1px #888888 solid; backdrop-filter: blur(12px)"%>
               </div>
-              <div class="col-12 mb-3">
+              <div class="col-12 mb-5">
                 <%= f.label :password, class: "form-label", style: "color: #A2A5FC; font-size: 22px; font-family: Roboto; font-weight: 400; line-height: 35.20px"%>
-                <%= f.text_field :password,
+                <%= f.password_field :password,
                         required: true,
                         hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                         input_html: { autocomplete: "new-password" },
                         class: "form-control",
                         style: "border-radius: 32px; border: 1px #888888 solid; backdrop-filter: blur(12px)" %>
               </div>
-              <div class="col-12 mb-3">
+              <div class="col-12 mb-5">
                 <%= f.label :password, class: "form-label", style: "color: #A2A5FC; font-size: 22px; font-family: Roboto; font-weight: 400; line-height: 35.20px"%>
-                <%= f.text_field :password_confirmation,
+                <%= f.password_field :password_confirmation,
                         required: true,
                         input_html: { autocomplete: "new-password" },
                         class: "form-control",
                         style: "border-radius: 32px; border: 1px #888888 solid; backdrop-filter: blur(12px)" %>
               </div>
 
-              <div style="width: 162px; height: 52px">
-                <div style="width: 162px; height: 52px">
-                  <div class="form-actions d-flex justify-content-center align-content-center" style="width: 162px; height: 52px; background: #A2A5FC; border-radius: 32px; border: 2px #C5C7FB solid">
-                    <%= f.button :submit, "Sign up", style: "color: #F5F7FA; font-size: 22px; font-family: Roboto; font-weight: 600; line-height: 33px" %>
-                  </div>
+              <div class="d-flex justify-content-around">
+
+                <div class="form-actions btn" style="border-radius: 32px; background: #A2A5FC">
+                  <%= f.button :submit, "Sign up", class: "btn", style: "color: white"%>
                 </div>
 
-                <div style="width: 162px; height: 52px">
-                  <div class="form-actions d-flex justify-content-center align-content-center" style="width: 162px; height: 52px; border-radius: 32px; border: 2px #A2A5FC solid">
-                    <%= link_to "Log in", new_user_session_path, style: "text-decoration: none; color: #F5F7FA; font-size: 22px; font-family: Roboto; font-weight: 600; line-height: 33px" %>
-                  </div>
+                <div class="form-actions btn" style="border-radius: 32px; background: #A2A5FC">
+                  <%= link_to "Log in", new_user_session_path, class: "btn", style: "color: white"%>
                 </div>
+
               </div>
 
             </form>

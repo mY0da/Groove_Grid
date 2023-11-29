@@ -1,4 +1,4 @@
-<div class="w-100 h-100 d-inline-flex flex-column justify-content-center align-items-center">
+<div class="mt-5 w-100 h-100 d-inline-flex flex-column justify-content-center align-items-center">
   <div style="width: 674px; height: 80vh; background: rgba(28, 27, 23, 0.60); border-radius: 32px; border: 1px #CECECE solid; backdrop-filter: blur(32px)">
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="container pt-5">
@@ -18,7 +18,7 @@
               </div>
               <div class="col-12 mb-5">
                 <%= f.label :password, class: "form-label", style: "color: #A2A5FC; font-size: 22px; font-family: Roboto; font-weight: 400; line-height: 35.20px"%>
-                <%= f.text_field :password,
+                <%= f.password_field :password,
                         required: false,
                         input_html: { autocomplete: "current-password" },
                         class: "form-control",
@@ -28,14 +28,14 @@
 
               <div class="d-flex justify-content-around">
 
-                <div class="form-actions btn" style="color: white; border-radius: 32px; border: 2px #A2A5FC solid">
-                  <%= f.button :submit, "Log in", class: "btn" %>
+                <div class="form-actions btn" style="border-radius: 32px; border: 2px #A2A5FC solid">
+                  <%= f.button :submit, "Log in", class: "btn", style: "color: white"%>
                   <%#= f.button :submit, "Log in", style: "color: #F5F7FA; font-size: 22px; font-family: Roboto; font-weight: 600; line-height: 33px" %>
                 </div>
 
-                <div class="form-actions btn" style="color: white; border-radius: 32px; background: #A2A5FC">
+                <div class="form-actions btn" style="border-radius: 32px; background: #A2A5FC">
                   <%#= link_to "Sign up", new_user_registration_path, style: "text-decoration: none; color: #F5F7FA; font-size: 22px; font-family: Roboto; font-weight: 600; line-height: 33px" %>
-                  <%= link_to "Sign up", new_user_registration_path, class: "btn" %>
+                  <%= link_to "Sign up", new_user_registration_path, class: "btn", style: "color: white"%>
                 </div>
 
               </div>
