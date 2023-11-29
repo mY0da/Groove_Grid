@@ -1,18 +1,42 @@
-<h2>Forgot your password?</h2>
+<div class="w-100 h-100 d-inline-flex flex-column justify-content-center align-items-center">
+  <div style="width: 674px; height: 80vh; background: rgba(28, 27, 23, 0.60); border-radius: 32px; border: 1px #CECECE solid; backdrop-filter: blur(32px)">
+    <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= f.error_notification %>
+      <div class="container pt-5">
+        <div class="row justify-content-center">
+          <div class="w-50 col-md-6 col-lg-4">
+            <form class="row">
+              <h1 class="text-center mb-5" style="color: white; font-size: 50px; font-family: Raleway; font-weight: 500">Forgot your password?</h1>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
+              <div class="col-12 mb-5">
+                <%= f.label :email, class: "form-label", style: "color: #A2A5FC; font-size: 22px; font-family: Roboto; font-weight: 400; line-height: 35.20px"%>
+                <%= f.text_field :email,
+                        required: false,
+                        autofocus: true,
+                        input_html: { autocomplete: "email" },
+                        class: "form-control",
+                        style: "border-radius: 32px; border: 1px #888888 solid; backdrop-filter: blur(12px)"%>
+              </div>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
+              <div class="form-actions btn mb-3" style="color: white; border-radius: 32px; border: 2px #A2A5FC solid; background: #A2A5FC">
+                <%= f.button :submit, "Send me reset password instructions", class: "btn" %>
+              </div>
+
+              <div class="d-flex justify-content-around">
+                <div class="form-actions btn" style="color: white; border-radius: 32px; border: 2px #A2A5FC solid">
+                  <%= link_to "Log in", new_user_session_path, class: "btn" %>
+                </div>
+
+                <div class="form-actions btn" style="color: white; border-radius: 32px; background: #A2A5FC">
+                  <%= link_to "Sign up", new_user_registration_path, class: "btn" %>
+                </div>
+
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
