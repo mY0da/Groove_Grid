@@ -1,16 +1,57 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&family=Roboto&display=swap');
 
-// Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+// Font Variables
+$headers-font: "Raleway", "Helvetica", "sans-serif";
+$body-font: "Roboto", "Helvetica", "sans-serif";
 
-// To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
+
+
+// Font Styles according to UI KIT:
+
+// this is a bigger header
+h1 {
+  color: var(--White, #F5F7FA);
+  font-family: Raleway;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+// this is a header
+h2 {
+  color: var(--White, #F5F7FA);
+  font-family: Roboto;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 57.6px */
+  letter-spacing: 2.16px;
+}
+
+// this is a paragraph
+p {
+  color: var(--White, #F5F7FA);
+  font-family: Roboto;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 35.2px */
+}
+
+// this is a link
+h3{
+  color: var(--White, #777DE0);
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 32px */
+  letter-spacing: 1.2px;
+}
+
+.button {
+  font-family: $body-font;
+  font-weight: bold;
+}
