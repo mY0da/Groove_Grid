@@ -1,0 +1,64 @@
+.glass-container {
+  width: 674px; height: 80vh;
+  background: rgba(28, 27, 23, 0.60);
+  border-radius: 32px;
+  border: 1px #CECECE solid;
+  backdrop-filter: blur(32px);
+}
+
+.main-title {
+  color: white;
+  font-size: 50px;
+  font-family: Raleway;
+  font-weight: 500;
+}
+
+.label-box {
+  color: #A2A5FC;
+  font-size: 22px;
+  font-family: Roboto;
+  font-weight: 400;
+  line-height: 35.20px;
+}
+
+.clear-btn {
+  border-radius: 32px;
+  border: 2px #A2A5FC solid;
+  padding: 0 25px 0 25px;
+  text-align: center;
+}
+
+.bgd-btn {
+  border-radius: 32px;
+  background: #A2A5FC;
+  padding: 0 25px 0 25px;
+  text-align: center;
+}
+
+.white {
+  color: white;
+}
+
+.text-box {
+  border-radius: 32px;
+  border: 1px #888888 solid;
+  background: transparent;
+  color: white;
+}
+
+.btn:hover {
+  color: white;
+}
+
+.bgd-btn:hover {
+  background: #777DE0;
+}
+
+.clear-btn:hover {
+  border: 2px #777DE0 solid;
+}
+
+.form-control:focus {
+  background-color: transparent;
+  color: white;
+}
