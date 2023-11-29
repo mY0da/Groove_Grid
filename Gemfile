@@ -28,6 +28,7 @@ gem "jbuilder"
 
 # Seeds for Songs DB
 gem 'rspotify'
+gem "cloudinary"
 
 # Upload real songs to DB
 gem 'cloudinary'
