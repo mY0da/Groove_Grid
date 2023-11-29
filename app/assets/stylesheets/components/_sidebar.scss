@@ -1,0 +1,64 @@
+// glass
+
+.container-sidebar {
+  width: 350px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-shrink: 0;
+  border-right: 1px solid #CECECE;
+  background: rgba(28, 27, 23, 0.60);
+  backdrop-filter: blur(16px);
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+}
+
+span {
+  color: #777DE0;
+}
+
+// .sidebar-user {
+//   display: flex;
+//   margin-top: 0px;
+// }
+
+h1{
+  font-family: Raleway;
+  color: #F5F7FA
+}
+
+.sidebar-list {
+  margin: 40px;
+  padding-left: 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: grid;
+}
+
+.sidebar-list a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar-footer {
+  margin: 30px;
+  padding: 0px 8px 0px 8px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: inline;
+  margin-bottom: 0px;
+}
+
+.sidebar-footer a:hover {
+  color: #f1f1f1;
+}
+
+a {
+  color: white;
+}
