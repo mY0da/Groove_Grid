@@ -12,11 +12,12 @@
   </head>
 
   <body class="main-container">
-
     <%= render "shared/sidebar" %>
-
     <%= render "shared/flashes" %>
 
-    <%= yield %>
+    <div data-controller="music-player" style="margin-left: 400px">
+      <%= render "/shared/audio_player" %>
+      <%= yield %>
+    </div>
   </body>
 </html>
