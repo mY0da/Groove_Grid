@@ -28,10 +28,10 @@ gem "jbuilder"
 
 # Seeds for Songs DB
 gem 'rspotify'
-gem "cloudinary"
 
 # Upload real songs to DB
 gem 'cloudinary'
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
@@ -82,3 +82,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "cloudinary"

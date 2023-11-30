@@ -17,6 +17,7 @@ puts 'Creating users'
 first_user = User.create!(username: 'martimtonic', first_name: 'Martim', last_name: 'Costa', email: 'mrtmtonic@gmail.com', password: 'Concha!95')
 
 puts 'Creating label'
+
 unknown_label = Label.create(name: "Unknown Label")
 
 puts 'Create unknown artist'
