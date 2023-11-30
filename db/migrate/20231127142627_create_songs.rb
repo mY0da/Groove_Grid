@@ -1,7 +1,7 @@
 class CreateSongs < ActiveRecord::Migration[7.1]
   def change
     create_table :songs do |t|
-      t.string :name
+      t.references :name, null:false
       t.integer :seconds
       t.integer :bpm
       t.string :scale

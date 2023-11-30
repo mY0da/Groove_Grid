@@ -1,24 +1,30 @@
-.song-table-container{
-  table, th, td {
-    border-collapse: collapse;
-    }
+.container {
+  left: 25%;
+  bottom: 0px;
+  top: 0px;
+  justify-content: space-evenly;
+}
 
-    th, td {
+.song-table-container {
+
+  table, th, td, tr {
+    top: 10px;
+    border-collapse: collapse;
     padding: 12px;
-    color: var(--White, #F5F7FA);
     font-family: Roboto;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 160%; /* 35.2px */
+    width: 100%;
     }
 
-    th {
-      background-color: #777de0;
-      color: var(--White, #F5F7FA);
-    }
+  th {
+    background-color: #777de0;
+  }
 
-    tr {
-      background-color: black;
-    }
+  td{
+    margin: 5%;
+    color: #F5F7FA;
+  }
 }
