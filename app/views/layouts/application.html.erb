@@ -12,20 +12,13 @@
   </head>
 
   <body class="main-container">
+    <%= render "shared/sidebar" %>
     <%= render "shared/flashes" %>
 
-    <section class="d-flex">
-      <%= render "shared/sidebar" %>
-        <div class="window w-100 h-100 d-flex flex-column align-content-center">
+    <div data-controller="music-player" style="margin-left: 4 00px">
+      <%= render "/shared/audio_player" %>
+      <%= yield %>
 
-          <%= yield %>
-        </div>
-
-    </section>
-
-
-
-
-
+    </div>
   </body>
 </html>
