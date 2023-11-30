@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_29_120622) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_30_162554) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -69,6 +70,18 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_29_120622) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "avatar"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "status"
+
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
   create_table "songs", force: :cascade do |t|
     t.string "name"
     t.integer "seconds"
@@ -99,10 +112,16 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_29_120622) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tags_profiles", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_tags_profiles_on_profile_id"
+    t.index ["tag_id"], name: "index_tags_profiles_on_tag_id"
+  end
+
   create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "first_name"
-    t.string "last_name"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -118,9 +137,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_29_120622) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "playlist_songs", "playlists"
   add_foreign_key "playlist_songs", "songs"
+  add_foreign_key "profiles", "users"
   add_foreign_key "songs", "artists"
   add_foreign_key "songs", "labels"
   add_foreign_key "songs", "users"
   add_foreign_key "tag_songs", "songs"
   add_foreign_key "tag_songs", "tags"
+  add_foreign_key "tags_profiles", "profiles"
+  add_foreign_key "tags_profiles", "tags"
 end

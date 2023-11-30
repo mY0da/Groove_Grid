@@ -1,0 +1,35 @@
+<div class="w-100 h-100 d-inline-flex flex-column justify-content-center align-items-center">
+  <div class="glass-container">
+    <%= form_for(@profile, :url => wizard_path, :method => :patch) do |f| %>
+      <div class="container pt-5">
+        <div class="row justify-content-center">
+          <div class="w-50 col-md-6 col-lg-4">
+            <form class="row">
+              <h1 class="text-center mb-5 main-title">Profile Avatar</h1>
+              <div class="col-12 mb-5">
+                <%= f.label :first_name, class: "form-label label-box"%>
+                <%= f.text_field :avatar, collection: ["1","2"], placeholder: 'avatar', class: "form-control text-box white" %>
+              </div>
+
+              <div class="d-flex justify-content-between">
+
+                <div class="form-actions btn bgd-btn">
+                  <%#= link_to "Sign up", new_user_registration_path, style: "text-decoration: none; color: #F5F7FA; font-size: 22px; font-family: Roboto; font-weight: 600; line-height: 33px" %>
+                  <%= link_to image_tag("back_arrow.png"), previous_wizard_path %>
+                </div>
+
+                <div class="form-actions btn clear-btn">
+                  <%= f.button do  %>
+                    <%= image_tag("next_arrow.svg") %>
+                  <% end %>
+                </div>
+
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -12,11 +12,13 @@
   </head>
 
   <body class="main-container">
-
     <%= render "shared/sidebar" unless devise_controller? || controller_name == "pages" %>
-
     <%= render "shared/flashes" %>
 
-    <%= yield %>
+    <div data-controller="music-player" style="margin-left: 4 00px">
+      <%= render "/shared/audio_player" %>
+      <%= yield %>
+
+    </div>
   </body>
 </html>

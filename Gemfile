@@ -83,4 +83,4 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "cloudinary"
+gem "wicked"
