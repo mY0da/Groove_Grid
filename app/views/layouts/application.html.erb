@@ -15,8 +15,9 @@
     <%= render "shared/flashes" %>
 
     <section class="d-flex">
-       <%= render "shared/sidebar" %>
-        <div class="window">
+      <%= render "shared/sidebar" %>
+        <div class="window w-100 h-100 d-flex flex-column align-content-center">
+
           <%= yield %>
         </div>
 
