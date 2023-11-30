@@ -5,6 +5,6 @@ Rails.application.routes.draw do
 
   resources :songs, only: [:index, :new, :create, :show]
 
-  resources :profiles, only: [:new,:create]
+  resources :profiles, controller: 'profiles'
 
 end

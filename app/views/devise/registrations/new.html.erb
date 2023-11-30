@@ -8,20 +8,6 @@
             <form class="row">
               <h1 class="text-center mb-5 main-title">Sign up</h1>
               <div class="col-12 mb-5">
-                <%= f.label :first_name, class: "form-label label-box"%>
-                <%= f.text_field :first_name,
-                        required: true,
-                        autofocus: true,
-                        class: "form-control text-box white"%>
-              </div>
-              <div class="col-12 mb-5">
-                <%= f.label :last_name, class: "form-label label-box"%>
-                <%= f.text_field :last_name,
-                        required: true,
-                        autofocus: true,
-                        class: "form-control text-box white"%>
-              </div>
-              <div class="col-12 mb-5">
                 <%= f.label :email, class: "form-label label-box"%>
                 <%= f.text_field :email,
                         required: true,
@@ -50,10 +36,6 @@
                   <%= f.button :submit, "Sign up", class: "btn white"%>
                 </div>
 
-                <div class="form-actions btn bgd-btn">
-                  <%#= link_to "Log in", new_user_session_path, class: "btn white"%>
-                  <%= link_to "test", after_signup_path(:confirm_password) %>
-                </div>
 
               </div>
 

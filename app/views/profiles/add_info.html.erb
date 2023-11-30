@@ -1,0 +1,9 @@
+<h2>Profile info </h2>
+<%= form_for(@profile, :url => wizard_path, :method => :patch) do |f| %>
+  <%= f.text_field :first_name, :placeholder => 'first_name code' %>
+  <%= f.text_field :last_name, :placeholder => 'last_name code' %>
+  <%= f.submit 'Next', :class => 'btn btn-primary' %>
+<% end %>
+
+
+<%= link_to 'skip', next_wizard_path %>

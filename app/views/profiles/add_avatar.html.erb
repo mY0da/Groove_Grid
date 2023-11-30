@@ -1,0 +1,8 @@
+<h2>Profile Avatar </h2>
+<%= form_for(@profile, :url => wizard_path, :method => :patch) do |f| %>
+  <%= f.text_field :avatar, collection: ["1","2"], placeholder: 'avatar' %>
+  <%= f.submit 'Next', :class => 'btn btn-primary' %>
+<% end %>
+
+
+<%= link_to 'skip', next_wizard_path %>
