@@ -1,0 +1,35 @@
+<div class="w-100 h-100 d-inline-flex flex-column justify-content-center align-items-center">
+  <div class="glass-container">
+
+        <div class="row justify-content-center">
+            <div class="w-50 col-md-6 col-lg-4 row align-items-center">
+
+              <h1 class="text-center">Howdy, DJ</h1>
+              <h6 class="text-center">CREATE THE PERFECT SET</h6>
+
+            </div>
+
+            <div class="col-10 parent-container row justify-content-center">
+
+              <div class="col-8">
+                <p>Creating and managing playlists
+                  can take a lot of a computer's
+                   memory, your time and money.
+                </p>
+                <p> With GrooveGrid you can
+                  access all your collection, use filters
+                  to choose songs and create
+                   better playlists! <%= image_tag("playlists.svg") %>
+                 </p>
+              </div>
+
+              <%= image_tag "user1_standing.svg", class: "child-avatar-container" %>
+
+            </div>
+
+                <%= link_to "NEXT → ", new_user_password_path, class: "fs-5 text-decoration-none label-box text-center" %>
+
+        </div>
+
+  </div>
+</div>

@@ -51,6 +51,16 @@ h3{
   letter-spacing: 1.2px;
 }
 
+h6{
+  color: var(--White, #777DE0);
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 160%; /* 32px */
+  letter-spacing: 1.2px;
+}
+
 .button {
   font-family: $body-font;
   font-weight: bold;
