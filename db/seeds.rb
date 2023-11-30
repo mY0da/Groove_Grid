@@ -14,7 +14,7 @@ User.destroy_all
 
 puts 'Creating users'
 
-first_user = User.create!(username: 'martimtonic', first_name: 'Martim', last_name: 'Costa', email: 'tony@merguez.com', password: 'teste123')
+first_user = User.create!(username: 'martimtonic', first_name: 'Martim', last_name: 'Costa', email: 'tony@merguez.com', password: 'test123')
 
 puts 'Creating label'
 
