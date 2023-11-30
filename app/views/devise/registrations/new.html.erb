@@ -7,28 +7,7 @@
           <div class="w-50 col-md-6 col-lg-4">
             <form class="row">
               <h1 class="text-center mb-5 main-title">Sign up</h1>
-              <div class="col-12 mb-5">
-                <%= f.label :username, class: "form-label label-box"%>
-                <%= f.text_field :username,
-                        required: true,
-                        autofocus: true,
-                        class: "form-control text-box white"%>
-              </div>
-              <div class="col-12 mb-5">
-                <%= f.label :first_name, class: "form-label label-box"%>
-                <%= f.text_field :first_name,
-                        required: true,
-                        autofocus: true,
-                        class: "form-control text-box white"%>
-              </div>
-              <div class="col-12 mb-5">
-                <%= f.label :last_name, class: "form-label label-box"%>
-                <%= f.text_field :last_name,
-                        required: true,
-                        autofocus: true,
-                        class: "form-control text-box white"%>
-              </div>
-              <div class="col-12 mb-5">
+              <div class="col-12 mb-4">
                 <%= f.label :email, class: "form-label label-box"%>
                 <%= f.text_field :email,
                         required: true,
@@ -36,7 +15,7 @@
                         input_html: { autocomplete: "email" },
                         class: "form-control text-box white"%>
               </div>
-              <div class="col-12 mb-5">
+              <div class="col-12 mb-4">
                 <%= f.label :password, class: "form-label label-box"%>
                 <%= f.password_field :password,
                         required: true,
@@ -44,7 +23,7 @@
                         input_html: { autocomplete: "new-password" },
                         class: "form-control text-box white"%>
               </div>
-              <div class="col-12 mb-5">
+              <div class="col-12 mb-4">
                 <%= f.label :password, class: "form-label label-box"%>
                 <%= f.password_field :password_confirmation,
                         required: true,
@@ -53,12 +32,16 @@
               </div>
 
               <div class="d-flex justify-content-between">
-                <div class="form-actions btn clear-btn">
-                  <%= f.button :submit, "Sign up", class: "btn white"%>
-                </div>
 
                 <div class="form-actions btn bgd-btn">
-                  <%= link_to "Log in", new_user_session_path, class: "btn white"%>
+                  <%#= link_to "Sign up", new_user_registration_path, style: "text-decoration: none; color: #F5F7FA; font-size: 22px; font-family: Roboto; font-weight: 600; line-height: 33px" %>
+                  <%= link_to image_tag("back_arrow.png"), new_user_session_path %>
+                </div>
+
+                <div class="form-actions btn clear-btn">
+                  <%= f.button :submit do  %>
+                    <%= image_tag("next_arrow.svg") %>
+                  <% end %>
                 </div>
 
               </div>
