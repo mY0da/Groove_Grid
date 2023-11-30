@@ -1,0 +1,15 @@
+<% if @song %>
+  <h1><%= @song.name %></h1>
+  <p>Artist: <%= @song.artist.name %></p>
+  <p>Label: <%= @song.label.name %></p>
+
+  <audio controls>
+    <source src="<%= cl_video_tag @song.audio_file.key, controls: true %>" type="audio/mp3">
+  </audio>
+  <p>teste</p>
+
+<% else %>
+  <p>Song not found</p>
+<% end %>
+
+<%= link_to 'Back', songs_path %>

@@ -17,7 +17,11 @@ puts 'Creating users'
 first_user = User.create!(username: 'martimtonic', first_name: 'Martim', last_name: 'Costa', email: 'mrtmtonic@gmail.com', password: 'Concha!95')
 
 puts 'Creating label'
-unknown_label = Label.create(name: "Unkown Label")
+
+unknown_label = Label.create(name: "Unknown Label")
+
+puts 'Create unknown artist'
+unknown_artist = Artist.create(name: "Unknown Artist")
 
 puts 'Creating scales'
 music_scales = ['1A', '1B', '2A', '2B', '3A', '3B', '4A', '4B', '5A', '5B', '6A', '6B', '7A', '7B', '8A', '8B', '9A', '9B', '10A', '10B', '11A', '11B', '12A', '12B',]
