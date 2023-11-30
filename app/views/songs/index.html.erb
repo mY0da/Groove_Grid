@@ -6,7 +6,6 @@
           <th>Song</th>
           <th>BPM</th>
           <th>Artist</th>
-          <th>Album</th>
           <th>Scale</th>
           <th>Duration</th>
           <th>Tags</th>
@@ -14,14 +13,13 @@
       </thead>
       <tbody>
       <% @songs.each do |song| %>
-        <tr>
+        <tr data-action="click->music-player#select" data-song="<%= song.to_json %>" data-url="<%= cl_video_path song.audio_file.key || '' %>">
           <td><%= song.name %></td>
           <td><%= song.bpm %></td>
-          <td><%= song.artist %></td>
-          <td><%= song.album %> </td>
+          <td><%= song.artist.name %></td>
           <td><%= song.scale %></td>
-          <td><%= song.duration %></td>
-          <td><%= song.tags %></td>
+          <td><%= song.seconds %></td>
+          <td><%= song.tags.name %></td>
         </tr>
       <% end %>
       <tbody>

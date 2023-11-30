@@ -1,0 +1,13 @@
+  <audio data-music-player-target="player" data-turbo-permanent id="music-player" controls>
+    <% song_id = "" %>
+    <source data-music-player-target="audioSource" src="<%= cl_video_path song_id, controls: true %>" type="audio/mp3">
+  </audio>
+
+  <%# <audio
+  data-turbo-permanent
+  id="white-noise-player"
+  controls
+  src="http://uk1.internet-radio.com:8267/listen.pls&t=.m3u">
+    Your browser does not support the
+    <code>audio</code> element.
+</audio> %>
