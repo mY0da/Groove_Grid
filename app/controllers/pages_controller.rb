@@ -4,6 +4,9 @@ class PagesController < ApplicationController
   def home
   end
 
-  def dashboard
+  def welcome_page
+  end
+
+  def welcome_video
   end
 end

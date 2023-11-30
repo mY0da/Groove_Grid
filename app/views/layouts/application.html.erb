@@ -12,7 +12,7 @@
   </head>
 
   <body class="main-container">
-    <%= render "shared/sidebar" %>
+    <%= render "shared/sidebar" unless devise_controller? || controller_name == "pages" %>
     <%= render "shared/flashes" %>
 
     <div data-controller="music-player" style="margin-left: 4 00px">
