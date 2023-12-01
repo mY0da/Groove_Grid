@@ -1,19 +1,37 @@
 import { Controller } from "@hotwired/stimulus"
+import WaveSurfer from 'wavesurfer.js'
 
 // Connects to data-controller="music-player"
 export default class extends Controller {
-  static targets = ["player", "audioSource"]
 
   connect() {
-    console.log('hello');
+    // this.element[this.identifier] = this
+    this.element[
+      (str => {
+        return str
+          .split('--')
+          .slice(-1)[0]
+          .split(/[-_]/)
+          .map(w => w.replace(/./, m => m.toUpperCase()))
+          .join('')
+          .replace(/^\w/, c => c.toLowerCase())
+      })(this.identifier)
+    ] = this
+
+    this.audioUrl = ""
+    this.wavesurfer = WaveSurfer.create({
+      container: document.querySelector("#audio-player"),
+      waveColor: 'rgb(200, 0, 200)',
+      progressColor: 'rgb(100, 0, 100)',
+      url: this.audioUrl
+    })
   }
 
-  select(event) {
-    const songUrl = event.target.parentElement.dataset['url'];
-    const songJSON = event.target.parentElement.dataset['song'];
-    const songInfo = JSON.parse(songJSON);
+  play() {
+    this.wavesurfer.play();
+  }
 
-    this.audioSourceTarget.src = songUrl;
-    this.playerTarget.load();
+  pause() {
+    this.wavesurfer.pause();
   }
 }
