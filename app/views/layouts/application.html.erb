@@ -12,6 +12,7 @@
   </head>
 
   <body class="main-container">
+  <div style="background-image: url('<%= image_path "Abstract_objects.png" %>')>
     <div class="page-container">
       <%= render "shared/sidebar" unless devise_controller? || controller_name == "pages" %>
       <%= render "shared/flashes" %>
