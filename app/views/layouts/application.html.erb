@@ -18,7 +18,7 @@
         <%= render "shared/sidebar" unless devise_controller? || controller_name == "pages" || controller_name == "profiles" %>
         <%= render "shared/flashes" %>
 
-        <div data-controller="music-player" style="margin-left: 4 00px">
+        <div data-controller="select" style="margin-left: 4 00px">
           <% unless devise_controller? || controller_name == "pages" || controller_name == "profiles" %>
             <%= render "/shared/audio_player"%>
             <main id="main-content" style="width: 75vw">

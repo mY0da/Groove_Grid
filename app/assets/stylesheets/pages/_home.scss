@@ -8,7 +8,9 @@
 .song-table-container {
 
   background: black;
-  
+  max-height: 400px; /* Set the desired maximum height */
+  overflow-y: auto; /* Enable vertical scrollbar */
+
   table, th, td, tr {
     top: 10px;
     border-collapse: collapse;
@@ -19,14 +21,55 @@
     font-weight: 400;
     line-height: 160%; /* 35.2px */
     width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #c5c7fb ;
     }
 
   th {
     background-color: #777de0;
+    position: sticky;
+    top: 0;
+    z-index: 2;
   }
 
   td{
     margin: 5%;
     color: #F5F7FA;
   }
+
+  .primary-lavender-2 {
+    color: #a2a5fc;
+  }
+
+  .grey{
+    color: grey
+  }
+
+  .song-tag {
+    background-color: #a2a5fc;
+    border: 1px solid #a2a5fc; /* Bordure de 2 pixels solide avec la couleur slateblue (code couleur HTML) */
+    border-radius: 14px; /* Coins arrondis de 8 pixels */
+    padding: 3px 10px; /* Espacement intérieur de 5 pixels en haut/bas et 10 pixels à gauche/droite */
+    display: inline-block; /* Permet à la bordure de s'adapter à la largeur du contenu */
+  }
+}
+
+
+
+.song-table-container::-webkit-scrollbar {
+  width: 12px;
+}
+
+.song-table-container::-webkit-scrollbar-thumb {
+  background-color: #777de0;
+  border-radius: 6px;
+}
+
+.song-table-container::-webkit-scrollbar-track {
+  background-color: black;
+}
+
+.search-bar{
+  display: flex;
+  justify-content: space-around;
 }

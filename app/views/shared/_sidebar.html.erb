@@ -1,6 +1,12 @@
 <div class="container-sidebar">
   <div class="w-75 mt-0 mb-4 d-flex justify-content-around align-content-center">
-    <%= image_tag("user1.svg") %>
+    <% if current_user.profile %>
+      <% if current_user.profile.avatar == "1" %>
+        <%= image_tag("user1.svg") %>
+      <% else %>
+        <%= image_tag("user2.svg") %>
+      <% end %>
+      <% end %>
     <p class="m-0"> <span> Hello, </span> <br> Martim Costa </p>
   </div>
 
@@ -24,7 +30,7 @@
     <%= link_to new_song_path, class: "text-decoration-none me-5" do %>
     <%= image_tag("addsong.svg", class: "me-3") %> Add song
     <% end %>
-    
+
     <a href="#grid" class="text-decoration-none"> <%= image_tag("grid.svg", class: "me-3") %> Grid</a>
   </div>
 

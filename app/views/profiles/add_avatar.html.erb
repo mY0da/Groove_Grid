@@ -1,25 +1,44 @@
 <div class="w-100 h-100 d-inline-flex flex-column justify-content-center align-items-center">
-  <div style="width: 674px; height: 60vh; background: rgba(28, 27, 23, 0.60); border-radius: 32px; border: 1px #CECECE solid; backdrop-filter: blur(32px)">
+  <div style="width: 674px; height: 80vh; background: rgba(28, 27, 23, 0.60); border-radius: 32px; border: 1px #CECECE solid; backdrop-filter: blur(32px)">
     <%= form_for(@profile, :url => wizard_path, :method => :patch) do |f| %>
       <div class="container pt-5">
         <div class="row justify-content-center">
           <div class="w-50 col-md-6 col-lg-4">
             <form class="row">
               <h1 class="text-center mb-5 main-title">Profile Avatar</h1>
-              <div class="col-12 mb-5">
-                <%= f.label :first_name, class: "form-label label-box"%>
-                <%= f.text_field :avatar, collection: ["1","2"], placeholder: 'avatar', class: "form-control text-box white" %>
-              </div>
+              <!-- <ul>
+                <li>
+                  <%= f.check_box :avatar, type: "checkbox", id: "myCheckbox1", class: "form-label label-box"%>
+                  <%= f.label :avatar, image_tag("user1.svg"), for: "myCheckbox1", value: "1" %>
+                </li>
+                <li>
+                  <%= f.check_box :avatar, type: "checkbox", id: "myCheckbox2", class: "form-label label-box"%>
+                  <%= f.label :avatar, image_tag("user2.svg"), for: "myCheckbox2", value: "2" %>
+                </li>
+              </ul> -->
+
+              <ul>
+                <% @options.each do |option| %>
+                  <li>
+                    <%= f.radio_button :avatar, option, id: "myCheckbox#{option}", class: "form-label label-box" %>
+                    <%= f.label :avatar, image_tag("user#{option}.svg"), for: "myCheckbox#{option}" %>
+                  </li>
+                <% end %>
+              </ul>
+                <%#% f.text_field :avatar, collection: ["1","2"], placeholder: 'avatar', class: "form-control text-box white" %>
 
               <div class="d-flex justify-content-between">
 
                 <div class="form-actions">
                   <%#= link_to "Sign up", new_user_registration_path, style: "text-decoration: none; color: #F5F7FA; font-size: 22px; font-family: Roboto; font-weight: 600; line-height: 33px" %>
-                  <%= link_to image_tag("back_arrow.png"), previous_wizard_path %>
+                  <%= link_to image_tag("back_arrow.png"), previous_wizard_path, class: "form-label" %>
                 </div>
 
                 <div class="form-actions">
-                  <%= link_to image_tag("next_arrow.png"), next_wizard_path %>
+                  <%= image_submit_tag("next_arrow.png") %>
+                  <%#= f.button do  %>
+                    <%#= image_tag("next_arrow.svg") %>
+                  <%# end %>
                 </div>
 
               </div>
