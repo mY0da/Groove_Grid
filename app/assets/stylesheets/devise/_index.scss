@@ -6,6 +6,11 @@
   backdrop-filter: blur(32px);
 }
 
+input[type=submit] {
+  background: transparent;
+  border: 0;
+}
+
 .main-title {
   color: white;
   font-size: 50px;
