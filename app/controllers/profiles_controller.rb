@@ -6,6 +6,7 @@ class ProfilesController < ApplicationController
   def show
     @user = current_user
     @profile = Profile.new(user: current_user)
+    @options = ["1", "2"]
     render_wizard
   end
 
@@ -14,7 +15,9 @@ class ProfilesController < ApplicationController
     @profile = Profile.find_or_initialize_by(user: current_user)
     @profile.status = step.to_s
     @profile.status = 'active' if step == steps.last
+
     @profile.update(profile_params)
+    #raise
     render_wizard @profile
   end
 
