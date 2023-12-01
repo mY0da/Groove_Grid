@@ -81,7 +81,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_30_162554) do
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name"
     t.integer "seconds"
     t.integer "bpm"
     t.string "scale"

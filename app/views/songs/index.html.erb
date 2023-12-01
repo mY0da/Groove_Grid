@@ -6,17 +6,17 @@
       <a class="active" href="#home">BPM</a>
       <a href="#about">Tag</a>
       <a href="#contact">Scala</a>
-      <input type="text" placeholder="Search..">
+      <input type="text" placeholder="Search...">
   </div>
 
   <div class ="song-table-container">
-    
+
     <table>
       <thead>
         <tr>
           <th>Song</th>
-          <th>BPM</th>
           <th>Artist</th>
+          <th>BPM</th>
           <th>Scale</th>
           <th>Duration</th>
           <th>Tags</th>
@@ -26,8 +26,8 @@
       <% @songs.each do |song| %>
         <tr data-action="click->music-player#select" data-song="<%= song.to_json %>" data-url="<%= cl_video_path song.audio_file.key || '' %>">
           <td><%= song.name %></td>
-          <td><%= song.bpm %></td>
           <td><%= song.artist.name %></td>
+          <td><%= song.bpm %></td>
           <td><%= song.scale %></td>
           <td><%= song.seconds %></td>
           <td><%= song.tags.name %></td>
