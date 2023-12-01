@@ -11,3 +11,11 @@
 @import "components/index";
 @import "pages/index";
 @import "devise/index";
+
+.background-image {
+  background-image: asset-url("Abstract_objects.png");
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  z-index: -5;
+}
