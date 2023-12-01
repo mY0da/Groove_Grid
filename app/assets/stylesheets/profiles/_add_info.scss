@@ -7,7 +7,7 @@
 }
 
 .main-title {
-  color: #F5F7FA;
+  color: white;
   font-size: 50px;
   font-family: Raleway;
   font-weight: 500;
@@ -36,14 +36,14 @@
 }
 
 .white {
-  color: #F5F7FA;
+  color: white;
 }
 
 .text-box {
   border-radius: 32px;
   border: 1px #888888 solid;
   background: transparent;
-  color: #F5F7FA;
+  color: white;
 }
 
 .btn:hover {
@@ -61,58 +61,4 @@
 .form-control:focus {
   background-color: transparent;
   color: white;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0 0 10% 0;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-input[type="radio"][id^="myCheckbox"] {
-  display: none;
-}
-
-label {
-  padding: 10px;
-  display: block;
-  position: relative;
-  margin: 10px;
-  cursor: pointer;
-}
-
-label:before {
-  color: white;
-  content: " ";
-  display: block;
-  border-radius: 50%;
-  border: 1px solid grey;
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  width: 25px;
-  height: 25px;
-  text-align: center;
-  line-height: 28px;
-  transition-duration: 0.4s;
-  transform: scale(0);
-}
-
-label img {
-  height: 150px;
-  width: 150px;
-  transition-duration: 0.2s;
-  transform-origin: 50% 50%;
-}
-
-:checked + label:before {
-  content: "✓";
-  transform: scale(1);
-}
-
-:checked + label img {
-  transform: scale(0.9);
-  /* box-shadow: 0 0 5px #333; */
 }
