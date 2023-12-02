@@ -7,7 +7,7 @@
         <%= image_tag("user2.svg") %>
       <% end %>
       <% end %>
-    <p class="m-0"> <span> Hello, </span> <br> Martim Costa </p>
+    <p class="m-0"> <span> Hello, </span> <br> <%= current_user.profile.first_name %> <%= current_user.profile.last_name %> </p>
   </div>
 
   <h1>GrooveGrid</h1>
