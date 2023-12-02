@@ -6,16 +6,6 @@
           <div class="w-50 col-md-6 col-lg-4">
             <form class="row">
               <h1 class="text-center mb-5 main-title">Profile Avatar</h1>
-              <!-- <ul>
-                <li>
-                  <%= f.check_box :avatar, type: "checkbox", id: "myCheckbox1", class: "form-label label-box"%>
-                  <%= f.label :avatar, image_tag("user1.svg"), for: "myCheckbox1", value: "1" %>
-                </li>
-                <li>
-                  <%= f.check_box :avatar, type: "checkbox", id: "myCheckbox2", class: "form-label label-box"%>
-                  <%= f.label :avatar, image_tag("user2.svg"), for: "myCheckbox2", value: "2" %>
-                </li>
-              </ul> -->
 
               <ul>
                 <% @options.each do |option| %>
@@ -25,7 +15,6 @@
                   </li>
                 <% end %>
               </ul>
-                <%#% f.text_field :avatar, collection: ["1","2"], placeholder: 'avatar', class: "form-control text-box white" %>
 
               <div class="d-flex justify-content-between">
 
