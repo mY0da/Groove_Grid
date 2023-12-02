@@ -12,25 +12,23 @@
   </head>
 
   <body class="main-container d-flex justify-content-between">
-    <div>
     <!--<div style="background-image: url('<%= image_path "Abstract_objects.png" %>')"> -->
-      <div class="page-container">
         <%= render "shared/sidebar" unless devise_controller? || controller_name == "pages" || controller_name == "profiles" %>
         <%= render "shared/flashes" %>
-
-        <div data-controller="select" style="margin-left: 4 00px">
+        <div class="container-content">
+          <%= yield %>
+        </div>
+        <!--<div data-controller="select" style="margin-left: 4 00px">
           <% unless devise_controller? || controller_name == "pages" || controller_name == "profiles" %>
             <%= render "/shared/audio_player"%>
             <main id="main-content" style="width: 75vw">
                 <%= yield %>
             </main>
           <% else %>
-            <main id="main-content" style="width: 100vw; margin-top: 10vh">
+            <main id="main-content" style="width: 100vw;">
               <%= yield %>
             </main>
-          <% end %>
+          <% end %>-->
         </div>
-      </div>
-    </div>
   </body>
 </html>
