@@ -20,10 +20,11 @@
         <tbody>
         <% @playlists.each do |playlist| %>
 
-            <td><%= playlist.name %></td>
-            <td class="primary-lavender-2"><%= playlist.songs.length %> Songs</td>
+            <tr>
+              <td><%= playlist.name %></td>
+              <td class="primary-lavender-2"><%= playlist.songs.length %> Songs</td>
+            </tr>
 
-          </tr>
         <% end %>
         <tbody>
       </table>
