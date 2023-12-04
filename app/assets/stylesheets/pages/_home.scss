@@ -7,9 +7,9 @@
 
 .song-table-container {
 
-  background: black;
   max-height: 400px; /* Set the desired maximum height */
   overflow-y: auto; /* Enable vertical scrollbar */
+  table-layout: auto; 
 
   table, th, td, tr {
     top: 10px;
@@ -22,32 +22,51 @@
     line-height: 160%; /* 35.2px */
     width: 100%;
     text-align: center;
-    border-bottom: 1px solid #c5c7fb ;
     }
 
-  th {
-    background-color: #777de0;
+  th { // Titre
     position: sticky;
+    color: black;
     top: 0;
     z-index: 2;
+    background-color: rgba(248, 245, 245, 0.912);
   }
 
-  td{
+  td{ // lignes
     margin: 5%;
     color: #F5F7FA;
+    position: relative; //added
+    border-bottom: 4px solid transparent;
+  }
+
+  td::before { //added
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Couleur noire légèrement transparente */
+    z-index: -1;
+    pointer-events: none;
+    clip-path: inset(0); /* Utiliser le clip-path pour s'assurer que la couleur de fond ne dépasse pas le texte */
+  }
+
+  tr:hover td::before { //added
+    background-color: rgba(0, 0, 0, 0.2); /* Couleur noire légèrement transparente au survol */
   }
 
   .primary-lavender-2 {
     color: #a2a5fc;
   }
 
-  .grey{
-    color: grey
+  .primary-lavender-4{
+    color: #3d44b3
   }
 
   .song-tag {
-    background-color: #a2a5fc;
-    border: 1px solid #a2a5fc; /* Bordure de 2 pixels solide avec la couleur slateblue (code couleur HTML) */
+    background-color: #3d44b3;
+    border: 1px solid #3d44b3; /* Bordure de 2 pixels solide avec la couleur slateblue (code couleur HTML) */
     border-radius: 14px; /* Coins arrondis de 8 pixels */
     padding: 3px 10px; /* Espacement intérieur de 5 pixels en haut/bas et 10 pixels à gauche/droite */
     display: inline-block; /* Permet à la bordure de s'adapter à la largeur du contenu */
@@ -64,7 +83,7 @@
 }
 
 .song-table-container::-webkit-scrollbar-track {
-  background-color: black;
+  background-color: transparent;
 }
 
 .search-bar{
