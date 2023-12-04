@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   resources :songs, only: %i[index new create show]
   resources :profiles, controller: 'profiles'
+  resources :playlists, only: %i[index new create show]
 end
