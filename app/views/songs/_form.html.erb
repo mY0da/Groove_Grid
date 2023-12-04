@@ -3,7 +3,15 @@
   <%#= f.submit %>
 <%# end %>
 
-<%= form_with model: Song.new, url: songs_path, multipart: true do |form| %>
-  <%= form.file_field :audio_file %>
-  <%= form.submit %>
+<%= form_with model: Song.new, url: songs_path, multipart: true do |f| %>
+  <%= f.file_field :audio_file %>
+  <%# Criar um input para o nome da música em vez de ir buscar o nome do ficheiro %>
+  <!--p>
+  <%#= f.text_field :name, placeholder: 'Song title' %>
+  </p-->
+  <p>
+    <%= f.label :tag_list %>
+    <%= f.text_field :tag_list %>
+  </p>
+  <%= f.submit %>
 <% end %>
