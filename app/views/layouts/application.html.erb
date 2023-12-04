@@ -15,7 +15,7 @@
     <%= render "shared/sidebar" unless devise_controller? || controller_name == "pages" || controller_name == "profiles" %>
     <%= render "shared/flashes" %>
     <% unless devise_controller? || controller_name == "pages" || controller_name == "profiles" %>
-      <div data-controller="selectSong" class="container-content justify-content-start">
+      <div data-controller="select" class="container-content justify-content-start">
         <%= render "/shared/audio_player"%>
         <%= yield %>
       </div>

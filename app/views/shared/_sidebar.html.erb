@@ -24,7 +24,11 @@
     <% end %>
 
     <a href="#playlists" class="text-decoration-none"> <%= image_tag("playlists.svg", class: "me-3") %> Playlists</a>
-    <a href="#tags" class="text-decoration-none"> <%= image_tag("tags.svg", class: "me-3") %> Tags</a>
+
+    <!-- Tags -->
+    <%= link_to tags_path, class: "text-decoration-none" do %>
+    <%= image_tag("tags.svg", class: "me-3") %> Tags
+    <% end %>
 
     <!-- Add Song -->
     <%= link_to new_song_path, class: "text-decoration-none" do %>
