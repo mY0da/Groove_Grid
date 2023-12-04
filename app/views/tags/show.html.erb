@@ -5,3 +5,50 @@
     <li><%= link_to song.name, song_path(song) %></li>
   <% end %>
 </ul>
+
+<div class="container">
+
+  <h1>Today's Rhythm</h1>
+
+<p>
+  <div>
+       <a class="active" href="#home">BPM</a>
+      <a href="#about">Tag</a>
+      <a href="#contact">Scale</a>
+  </div>
+  <div class="search-bar">
+      <input type="text" placeholder="Search...">
+  </div>
+</p>
+
+<p>
+  <div class ="song-table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Song title</th>
+          <th class="primary-lavender-4">BPM</th>
+          <th>Artist</th>
+          <th class="primary-lavender-4">Scale</th>
+          <th>Duration</th>
+          <th class="primary-lavender-4">Tags</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @tag.songs.each do |song| %>
+        <tr data-action="click->select#selectSong" data-song="<%= song.to_json %>" data-url="<%= cl_video_path song.audio_file.key || '' %>">
+          <td><%= link_to song.name, song_path(song) %></td>
+          <td class="primary-lavender-2"><%= song.bpm %></td>
+          <td class="grey"><%= song.artist.name %></td>
+          <td class="primary-lavender-2"><%= song.scale %></td>
+          <% t = song.seconds.to_i %>
+          <% song_duration = Time.at(t).utc.strftime("%H:%M:%S") %>
+          <td class="grey"><%= song_duration[3,8] %></td>
+          <td class="grey"><span class="song-tag"><%= song.tags.name %></td>
+        </tr>
+      <% end %>
+      <tbody>
+    </table>
+  </div>
+</p>
+</div>
