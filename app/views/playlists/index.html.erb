@@ -1,0 +1,33 @@
+<div class="container">
+
+  <h1>Your Playlists</h1>
+
+  <p>
+    <div class="search-bar">
+      <input type="text" placeholder="Search...">
+    </div>
+  </p>
+
+  <p>
+    <div class ="song-table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Songs</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @playlists.each do |playlist| %>
+
+            <tr>
+              <td><%= playlist.name %></td>
+              <td class="primary-lavender-2"><%= playlist.songs.length %> Songs</td>
+            </tr>
+
+        <% end %>
+        <tbody>
+      </table>
+    </div>
+  </p>
+</div>

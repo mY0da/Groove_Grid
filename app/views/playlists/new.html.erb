@@ -1,0 +1,7 @@
+<%= form_with model: Playlist.new, url: playlists_path, multipart: true do |f| %>
+  <%= f.label :name, class: "form-label label-box"%>
+  <%= f.text_field :name,
+          required: true,
+          class: "form-control text-box white"%>
+  <%= f.submit %>
+<% end %>
