@@ -1,4 +1,9 @@
-<%= simple_form_for(song) do |f| %>
-  <%= f.input :audio_file, as: :file %>
-  <%= f.submit %>
+<%#= simple_form_for(song) do |f| %>
+  <%#= f.input :audio_file, as: :file %>
+  <%#= f.submit %>
+<%# end %>
+
+<%= form_with model: Song.new, url: songs_path, multipart: true do |form| %>
+  <%= form.file_field :audio_file %>
+  <%= form.submit %>
 <% end %>
