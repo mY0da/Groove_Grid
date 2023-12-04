@@ -7,7 +7,7 @@
             <form class="row">
               <h1 class="text-center mb-5 main-title">Profile Avatar</h1>
 
-              <ul>
+              <ul class="list">
                 <% @options.each do |option| %>
                   <li>
                     <%= f.radio_button :avatar, option, id: "myCheckbox#{option}", class: "form-label label-box" %>

@@ -12,4 +12,7 @@ class PagesController < ApplicationController
 
   def welcome_video
   end
+
+  def dashboard
+  end
 end
