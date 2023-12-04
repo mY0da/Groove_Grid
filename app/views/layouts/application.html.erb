@@ -12,11 +12,19 @@
   </head>
 
   <body class="main-container d-flex justify-content-between">
+    <!--<div style="background-image: url('<%= image_path "Abstract_objects.png" %>')"> -->
     <%= render "shared/sidebar" unless devise_controller? || controller_name == "pages" || controller_name == "profiles" %>
     <%= render "shared/flashes" %>
-    <div class="container-content">
-      <%= yield %>
-    </div>
-    </div>
+    <% unless devise_controller? || controller_name == "pages" || controller_name == "profiles" %>
+      <div data-controller="selectSong" class="container-content justify-content-start">
+        <%= render "/shared/audio_player"%>
+        <%= yield %>
+      </div>
+    <% else %>
+      <div class="container-content justify-content-center">
+        <%= yield %>
+      </div>
+    <% end %>
+
   </body>
 </html>
