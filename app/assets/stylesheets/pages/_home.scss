@@ -9,7 +9,7 @@
 
   max-height: 400px; /* Set the desired maximum height */
   overflow-y: auto; /* Enable vertical scrollbar */
-  table-layout: auto; 
+  table-layout: auto;
 
   table, th, td, tr {
     top: 10px;
@@ -71,8 +71,15 @@
     padding: 3px 10px; /* Espacement intérieur de 5 pixels en haut/bas et 10 pixels à gauche/droite */
     display: inline-block; /* Permet à la bordure de s'adapter à la largeur du contenu */
   }
+
+  .td:first-child  {
+    /* Cible en Css les cellules de tableau de la première colonne du tableau */
+    /* Listes de propriétés Css */
+    text-align: left;
+  }
 }
 
+// How to design the scrollbar :
 .song-table-container::-webkit-scrollbar {
   width: 12px;
 }
@@ -86,6 +93,45 @@
   background-color: transparent;
 }
 
+//How to design the dropdown buttons (tags, Scale) with toggled::after
+.dropdown {
+  display: inline-block;
+  margin: 10px;
+}
+
+button {
+  background-color: transparent;
+  color: white;
+  padding: 10px;
+  border-radius: 20%; ;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.show {
+  display: block;
+}
+
+//How to design the search-bar:
 .search-bar{
   display: flex;
   justify-content: space-around;

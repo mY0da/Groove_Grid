@@ -1,13 +1,18 @@
 <div class="container">
-
   <h1>Today's Rhythm</h1>
 
-  <p>
-    <div>
-        <a class="active" href="#home">BPM</a>
-        <a href="#about">Tag</a>
-        <a href="#contact">Scale</a>
-    </div>
+  <div class="dropdown">
+      <button onclick="toggleDropdown('tagButton')">
+          <span>Tag</span>
+          <i class="fa-solid fa-tag" style="color: #3d44b3;" alt="Tag Icon"></i>
+      </button>
+      <div id="tagButton" class="dropdown-content">
+          <a href="#">Option A</a>
+          <a href="#">Option B</a>
+          <a href="#">Option C</a>
+      </div>
+  </div>
+
     <div class="search-bar">
         <input type="text" placeholder="Search...">
     </div>
@@ -15,10 +20,10 @@
 
   <p>
     <div class ="song-table-container">
-      <table>
+      <table style="width: 100%; table-layout: fixed;">
         <thead>
           <tr>
-            <th>Song title</th>
+            <th class="td:first-child">Song title</th>
             <th class="primary-lavender-4">BPM</th>
             <th>Artist</th>
             <th class="primary-lavender-4">Scale</th>
@@ -43,5 +48,4 @@
       </table>
     </div>
   </p>
-
 </div>
