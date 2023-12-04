@@ -31,7 +31,9 @@
           <td class="primary-lavender-2"><%= song.bpm %></td>
           <td class="grey"><%= song.artist.name %></td>
           <td class="primary-lavender-2"><%= song.scale %></td>
-          <td class="grey"><%= song.seconds %></td>
+          <% t = song.seconds.to_i %>
+          <% song_duration = Time.at(t).utc.strftime("%H:%M:%S") %>
+          <td class="grey"><%= song_duration[3,8] %></td>
           <td class="grey"><span class="song-tag"><%= song.tags.name %></td>
         </tr>
       <% end %>
@@ -39,3 +41,4 @@
     </table>
   </div>
 </p>
+</div>
