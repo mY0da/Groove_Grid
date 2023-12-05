@@ -7,30 +7,40 @@
       <h3 class="have">YOU HAVE</h3>
       <div class="stats">
         <%= link_to songs_path do %>
-         <%= image_tag("songs.svg", class: "me-3") %>
-         <%= Song.count %> Songs
+          <%= image_tag("songs.svg", class: "me-3") %>
+          <%= Song.count %> Songs
         <% end %>
         <%= link_to songs_path do %>
-         <%= image_tag("playlists.svg", class: "me-3") %>
-         <%= Playlist.count %> Playlists
+          <%= image_tag("playlists.svg", class: "me-3") %>
+          <%= Playlist.count %> Playlists
         <% end %>
       </div>
       <%= image_tag("chart.svg", class: "chart") %>
     </div>
 
     <div class="glass-container-two">
-      <h3 class="have">LAST SETS</h3>
-      <div class="stats">
-        <%= link_to songs_path do %>
-         <%= image_tag("playlists.svg", class: "me-3") %>
-         <%= Playlist.all[-1].name %>
-        <% end %>
-        <%= link_to songs_path do %>
-         <%= image_tag("playlists.svg", class: "me-3") %>
-         <%= Playlist.all[-2].name %>
-        <% end %>
-      </div>
-      <%= image_tag("CD.svg", class: "cd") %>
-    </div>
+
+  <h3 class="have">LAST SETS</h3>
+  <div class="stats">
+
+    <%= link_to playlist_path(Playlist.last) do %>
+      <%= image_tag("playlists.svg", class: "me-3") %>
+      <% if Playlist.any? %>
+        <%= Playlist.last.name %>
+      <% else %>
+        No Playlists
+      <% end %>
+    <% end %>
+
+    <%= link_to playlist_path(Playlist.last) do %>
+      <%= image_tag("playlists.svg", class: "me-3") %>
+      <% if Playlist.any? %>
+        <%= Playlist.last.name %>
+      <% else %>
+        No Playlists
+      <% end %>
+    <% end %>
+
   </div>
+  <%= image_tag("CD.svg", class: "cd") %>
 </div>

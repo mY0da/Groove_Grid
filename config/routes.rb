@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :songs, only: %i[index new create show edit]
   resources :profiles, controller: 'profiles'
   resources :playlists do
-    resources :playlist_songs, only: %i[new create]
+    resources :playlist_songs, only: %i[new create destroy]
   end
   resources :tags
   resources :playlist_songs, only: :destroy

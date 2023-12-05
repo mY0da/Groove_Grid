@@ -1,7 +1,14 @@
 class PlaylistsController < ApplicationController
+  before_action :set_playlist, only: [:destroy, :show]
+
   def index
     @playlists = Playlist.all
     render :index
+  end
+
+  def show
+    @playlist_song = PlaylistSong.new
+    render :show
   end
 
   def new
@@ -18,13 +25,16 @@ class PlaylistsController < ApplicationController
     end
   end
 
-  def show
-    @playlist = Playlist.find(params[:id])
-    @playlist_song = PlaylistSong.new
-    render :show
+  def destroy
+    @playlist.destroy
+    redirect_to playlists_path, status: :see_other
   end
 
   private
+
+  def set_playlist
+    @playlist = Playlist.find(params[:id])
+  end
 
   def playlist_params
     params.require(:playlist).permit(:name)

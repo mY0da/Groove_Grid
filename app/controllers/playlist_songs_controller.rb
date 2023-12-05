@@ -1,5 +1,5 @@
 class PlaylistSongsController < ApplicationController
-  before_action :set_bookmark, only: :destroy
+  before_action :set_playlist_song, only: :destroy
   before_action :set_playlist, only: [:new, :create]
 
   def create
@@ -14,7 +14,7 @@ class PlaylistSongsController < ApplicationController
 
   def destroy
     @playlist_song.destroy
-    redirect_to list_path(@playlist_song.list), status: :see_other
+    redirect_to playlist_path(@playlist_song.playlist), status: :see_other
   end
 
     private
