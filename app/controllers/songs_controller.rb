@@ -1,6 +1,11 @@
 class SongsController < ApplicationController
   def index
-    @songs = Song.all
+    if params[:query].present?
+      sql_query = "name ILIKE :query"
+      @songs = Song.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @songs = Song.all
+    end
     render :index
   end
 

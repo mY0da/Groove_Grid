@@ -1,37 +1,58 @@
 <div class="container">
   <h1>Today's Rhythm</h1>
 
-  <div class="dropdown">
-      <button onclick="toggleDropdown('tagButton')">
-          <span>Tag</span>
-          <i class="fa-solid fa-tag" style="color: #3d44b3;" alt="Tag Icon"></i>
-      </button>
-      <div id="tagButton" class="dropdown-content">
-          <a href="#">Option A</a>
-          <a href="#">Option B</a>
-          <a href="#">Option C</a>
+    <!--<script src="https://unpkg.com/stimulus@2.0.0/dist/stimulus.umd.js"></script>
+      <div class="dropdown" data-controller="button" class="flex-item">
+          <button data-action="button#toggle">
+              <span>Tag</span>  .
+              <i class="fa-solid fa-tag" style="color: #3d44b3;" alt="Tag Icon"></i>
+          </button>
+          <div id="tagButton" class="dropdown-content">
+              <a href="#">Option A</a>
+              <a href="#">Option B</a>
+              <a href="#">Option C</a>
+          </div>
       </div>
+
+      <div class="dropdown" data-controller="button">
+          <button data-action="button#toggle">
+              <span>Key</span>
+              <i class="fa-solid fa-scale-balanced" style="color: #3d44b3;"></i>
+          </button>
+          <div id="tagButton" class="dropdown-content">
+              <a href="#">Option A</a>
+              <a href="#">Option B</a>
+              <a href="#">Option C</a>
+          </div>
+      </div>-->
+<p>
+  <div class="container-search-bar">
+    <%= form_tag songs_path, method: :get do %>
+      <div class= "search-bar-wrapper">
+        <%= text_field_tag :query,
+        params[:query],
+        class:"form-control",
+        placeholder:"Find a song";
+        class="text-box white"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      </div>
+    <% end %>
   </div>
-
-    <div class="search-bar">
-        <input type="text" class="text-box white" placeholder="Search...">
-    </div>
-  </p>
-
-  <p>
-    <div class ="song-table-container">
-      <table style="width: 100%; table-layout: fixed;">
-        <thead>
-          <tr>
-            <th class="td:first-child">Song title</th>
-            <th class="primary-lavender-4">BPM</th>
-            <th>Artist</th>
-            <th class="primary-lavender-4">Scale</th>
-            <th>Duration</th>
-            <th class="primary-lavender-4">Tags</th>
-          </tr>
-        </thead>
-        <tbody>
+</p>
+  <div class ="song-table-container">
+    <table style="width: 100%; table-layout: fixed;">
+      <thead>
+        <tr>
+          <th class="td:first-child">Song title</th>
+          <th class="primary-lavender-4">BPM</th>
+          <th>Artist</th>
+          <th class="primary-lavender-4">Scale</th>
+          <th>Duration</th>
+          <th class="primary-lavender-4">Tags</th>
+        </tr>
+      </thead>
+      <tbody>
         <% @songs.each do |song| %>
           <tr data-action="click->select#selectSong" data-song="<%= song.to_json %>" data-url="<%= cl_video_path song.audio_file.key || '' %>">
             <td><%= song.name %></td>
@@ -44,8 +65,7 @@
             <td class="grey"><span class="song-tag"><%= song.tags.name %></td>
           </tr>
         <% end %>
-        <tbody>
-      </table>
-    </div>
-  </p>
+      <tbody>
+    </table>
+  </div>
 </div>

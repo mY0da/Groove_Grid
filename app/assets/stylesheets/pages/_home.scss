@@ -94,6 +94,7 @@
 }
 
 //How to design the dropdown buttons (tags, Scale) with toggled::after
+
 .dropdown {
   display: inline-block;
   margin: 10px;
@@ -103,7 +104,6 @@ button {
   background-color: transparent;
   color: white;
   padding: 10px;
-  border-radius: 20%; ;
   cursor: pointer;
 }
 
@@ -129,10 +129,26 @@ button {
 
 .show {
   display: block;
+
 }
 
 //How to design the search-bar:
-.search-bar{
+.container-search-bar {
+  text-align: right;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
+}
+
+.search-bar-wrapper {
+  display: flex;
+}
+
+.form-control {
+  width: 200px;
+  box-sizing: border-box;
+}
+
+.btn {
+  margin-left: 10px;
+  background-color: #3d44b3;
 }
