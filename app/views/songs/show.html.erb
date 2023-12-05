@@ -11,11 +11,27 @@
   <p>Song not found</p>
 <% end %>
 
-<%= link_to 'Back', songs_path %>
-
 <p>
   Tags:
-  <% @song.tags.each do |tag| %>
-    <%= link_to tag.name, tag_path(tag) %>
+  <% if @song.tags.present? %>
+    <% @song.tags.each do |tag| %>
+      <span class="tag"><%= link_to tag.name, tag_path(tag) %></span>
+    <% end %>
+  <% else %>
+    No tags added
   <% end %>
 </p>
+
+<%= form_with(url: add_tag_song_path(@song), method: :post) do |form| %>
+  <%= form.label :tag_name, 'Add Tag:' %>
+  <%= form.text_field :tag_name %>
+  <%= form.submit 'Add' %>
+<% end %>
+
+<%= form_with(url: remove_tag_song_path(@song), method: :post) do |form| %>
+  <%= form.label :tag_name, 'Remove Tag:' %>
+  <%= form.text_field :tag_name %>
+  <%= form.submit 'Remove' %>
+<% end %>
+
+<%= link_to 'Back', songs_path %>
