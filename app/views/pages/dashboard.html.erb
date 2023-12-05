@@ -19,15 +19,15 @@
     </div>
 
     <div class="glass-container-two">
-      <h3 class="have">TOP SETS</h3>
+      <h3 class="have">LAST SETS</h3>
       <div class="stats">
         <%= link_to songs_path do %>
          <%= image_tag("playlists.svg", class: "me-3") %>
-         <%= Playlist.last.name%>
+         <%= Playlist.all[-1].name %>
         <% end %>
         <%= link_to songs_path do %>
          <%= image_tag("playlists.svg", class: "me-3") %>
-         <%= Playlist.last.name %>
+         <%= Playlist.all[-2].name %>
         <% end %>
       </div>
       <%= image_tag("CD.svg", class: "cd") %>
