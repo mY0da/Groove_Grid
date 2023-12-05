@@ -1,45 +1,53 @@
 <div class="container">
-
-  <h1><%= @playlist.name %></h1>
-  <%= render "/shared/audio_player"%>
-    <div class="controls d-flex">
-    <div data-action="click->music-player#play">  <%= image_tag 'play.svg', class: 'bang-button', alt: 'bang-button', size: '25x25' %></div>
-    <div data-action="click->music-player#pause">  <%= image_tag 'pause.svg', class: 'bang-button', alt: 'bang-button', size: '25x25' %></div>
+  <div class="d-flex">
+    <h1 class="mb-0"><%= @playlist.name %></h1>
+    <%= link_to image_tag("trash.svg"), playlist_path(@playlist), class: "ms-3", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this playlist?" } %>
   </div>
 
-  <p>
-    <div>
-        <a class="active" href="#home">BPM</a>
-        <a href="#about">Tag</a>
-        <a href="#contact">Scale</a>
-    </div>
-    <div class="search-bar">
-        <input type="text" placeholder="Search...">
-    </div>
-  </p>
+  <%= render "/shared/audio_player"%>
 
-  <%= render "playlist_songs/modal", playlist: @playlist, playlist_song: @playlist_song %>
+  <div class="d-flex justify-content-between">
+    <div>
+      <div class="d-flex">
+        <h1 class="mb-0"><%= @playlist.name %></h1>
+        <%= link_to image_tag("trash.svg"), playlist_path(@playlist), class: "ms-3", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this playlist?" } %>
+      </div>
+      <%= render "playlist_songs/modal", playlist: @playlist, playlist_song: @playlist_song %>
+    </div>
+    <div class="d-flex align-items-end">
+      <%= form_tag playlist_path(@playlist), method: :get do %>
+        <div class= "search-bar-wrapper">
+          <%= text_field_tag :query,
+          params[:query],
+          class:"form-control-search text-box white",
+          placeholder:"Find a song";
+          %>
+          <div class="form-actions btn-search btn clear-btn">
+            <%= submit_tag "Search", class: "btn white" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
   <p>
     <div class ="song-table-container">
       <table>
         <thead>
-          <tr><%= link_to "X", playlist_path(@playlist), class: "btn btn-cancel", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this playlist?" } %></tr>
           <tr>
-            <th>Delete</th>
             <th>Song title</th>
             <th class="primary-lavender-4">BPM</th>
             <th>Artist</th>
             <th class="primary-lavender-4">Scale</th>
             <th>Duration</th>
             <th class="primary-lavender-4">Tags</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
         <% @playlist.songs.each do |song| %>
           <% playlist_song = PlaylistSong.find_by(playlist: @playlist, song: song) %>
           <tr data-action="click->select#selectSong" data-song="<%= song.to_json %>" data-url="<%= cl_video_path song.audio_file.key || '' %>">
-            <td><%= link_to "X", playlist_song_path(playlist_song), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{song.name} from your #{@playlist.name} playlist"}, class: 'text-danger' %></td>
             <td><%= song.name %></td>
             <td class="primary-lavender-2"><%= song.bpm %></td>
             <td class="grey"><%= song.artist.name %></td>
@@ -48,6 +56,7 @@
             <% song_duration = Time.at(t).utc.strftime("%H:%M:%S") %>
             <td class="grey"><%= song_duration[3,8] %></td>
             <td class="grey"><span class="song-tag"><%= song.tags.name %></td>
+            <td><%= link_to image_tag("X.svg"), playlist_song_path(playlist_song), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{song.name} from your #{@playlist.name} playlist"}, class: 'text-danger' %></td>
           </tr>
         <% end %>
         <tbody>
