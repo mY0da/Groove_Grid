@@ -2,11 +2,6 @@
 
   <h1><%= @playlist.name %></h1>
   <%= render "/shared/audio_player"%>
-    <div class="controls d-flex">
-    <div data-action="click->music-player#play">  <%= image_tag 'play.svg', class: 'bang-button', alt: 'bang-button', size: '25x25' %></div>
-    <div data-action="click->music-player#pause">  <%= image_tag 'pause.svg', class: 'bang-button', alt: 'bang-button', size: '25x25' %></div>
-  </div>
-
   <p>
     <div>
         <a class="active" href="#home">BPM</a>
