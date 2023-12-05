@@ -1,17 +1,19 @@
 <div class="container">
   <h1>Today's Rhythm</h1>
   <%= render "/shared/audio_player"%>
-<p>
-  <div class="container-search-bar">
-    <%= form_tag songs_path, method: :get do %>
-      <div class= "search-bar-wrapper">
-        <%= text_field_tag :query,
-        params[:query],
-        class:"form-control-search text-box white",
-        placeholder:"Find a song";
-        %>
-        <div class="form-actions btn-search btn clear-btn">
-          <%= submit_tag "Search", class: "btn white" %>
+
+  <p>
+    <div class="container-search-bar">
+      <%= form_tag songs_path, method: :get do %>
+        <div class= "search-bar-wrapper">
+          <%= text_field_tag :query,
+          params[:query],
+          class:"form-control-search text-box white",
+          placeholder:"Find a song";
+          %>
+          <div class="form-actions btn-search btn clear-btn">
+            <%= submit_tag "Search", class: "btn white" %>
+          </div>
         </div>
       <% end %>
     </div>
