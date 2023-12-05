@@ -1,8 +1,3 @@
-<%#= simple_form_for(song) do |f| %>
-  <%#= f.input :audio_file, as: :file %>
-  <%#= f.submit %>
-<%# end %>
-
 <%= form_with model: Song.new, url: songs_path, multipart: true do |f| %>
   <%= f.file_field :audio_file %>
   <%# Criar um input para o nome da música em vez de ir buscar o nome do ficheiro %>
@@ -13,5 +8,5 @@
     <%= f.label :tag_list %>
     <%= f.text_field :tag_list %>
   </p>
-  <%= f.submit %>
+  <%= f.submit link_to songs_path(@song) %>
 <% end %>
