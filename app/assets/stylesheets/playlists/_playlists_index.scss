@@ -1,0 +1,49 @@
+.your-playlists{
+  margin-left: 2%;
+}
+
+.glass-container-three {
+  width: 250px !important;
+  height: 250px !important;
+  background: rgba(28, 27, 23, 0.60);
+  border-radius: 32px;
+  border: 1px #CECECE solid;
+  backdrop-filter: blur(32px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.playlists{
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.song-table-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.sphere{
+  border-radius: 10px;
+  height: 150px;
+  width: 200px;
+  margin-top: 10%;
+  object-fit:cover;
+}
+
+.playlist-name{
+  color: #777DE0;
+  padding: 2%;
+  align-items: center;
+  justify-content: center;
+}
+
+.playlist-songs{
+  color: #777DE0;
+  align-items: center;
+  justify-content: center;
+}
