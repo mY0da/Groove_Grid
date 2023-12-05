@@ -28,4 +28,10 @@
   <%= form.submit 'Add' %>
 <% end %>
 
+<%= form_with(url: remove_tag_song_path(@song), method: :post) do |form| %>
+  <%= form.label :tag_name, 'Remove Tag:' %>
+  <%= form.text_field :tag_name %>
+  <%= form.submit 'Remove' %>
+<% end %>
+
 <%= link_to 'Back', songs_path %>

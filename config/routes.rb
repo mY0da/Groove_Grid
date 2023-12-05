@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :songs do
     member do
       post 'add_tag'
+      post 'remove_tag'
     end
   end
 

@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  before_action :set_song, only: %i[show edit add_tag]
+  before_action :set_song, only: %i[show edit add_tag remove_tag]
 
   def index
     @songs = Song.all
@@ -34,6 +34,12 @@ class SongsController < ApplicationController
   def add_tag
     tag = Tag.find_or_create_by(name: params[:tag_name])
     @song.tags << tag
+    redirect_to @song
+  end
+
+  def remove_tag
+    tag = Tag.find_by(name: params[:tag_name])
+    @song.tags.delete(tag) if tag
     redirect_to @song
   end
 
