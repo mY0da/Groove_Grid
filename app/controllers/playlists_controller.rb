@@ -3,7 +3,6 @@ class PlaylistsController < ApplicationController
 
   def index
     @playlists = Playlist.all
-    render :index
   end
 
   def show
@@ -13,6 +12,7 @@ class PlaylistsController < ApplicationController
 
   def new
     @playlist = Playlist.new
+
   end
 
   def create

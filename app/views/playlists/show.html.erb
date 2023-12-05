@@ -13,10 +13,13 @@
     </div>
   </p>
 
+  <%= render "playlist_songs/modal", playlist: @playlist, playlist_song: @playlist_song %>
+
   <p>
     <div class ="song-table-container">
       <table>
         <thead>
+          <tr><%= link_to "X", playlist_path(@playlist), class: "btn btn-cancel", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this playlist?" } %></tr>
           <tr>
             <th>Delete</th>
             <th>Song title</th>
@@ -26,7 +29,6 @@
             <th>Duration</th>
             <th class="primary-lavender-4">Tags</th>
           </tr>
-          <tr><%= link_to "X", playlist_path(@playlist), class: "btn btn-cancel", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this playlist?" } %></tr>
         </thead>
         <tbody>
         <% @playlist.songs.each do |song| %>
@@ -48,10 +50,3 @@
     </div>
   </p>
 </div>
-.playlists{
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin-left: 3%;
-}
