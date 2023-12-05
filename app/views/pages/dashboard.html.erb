@@ -1,50 +1,36 @@
 <div class="main_dashboard_container">
-
   <div>
     <h1 class="dashboard">Your Dashboard</h1>
   </div>
-
   <div class="dashboard_container">
-
     <div class="glass-container-two">
-
-        <h3 class="have">YOU HAVE</h3>
-
-
-
-        <ul class="stats-info">
-          <li> <%= current_user.email %> </li>
-          <li> <%= current_user.email %> </li>
-          <li> <%= current_user.email %> </li>
-        </ul>
-
-
-
-        <%= image_tag("chart.svg", class: "chart") %>
-
+      <h3 class="have">YOU HAVE</h3>
+      <div class="stats">
+        <%= link_to songs_path do %>
+         <%= image_tag("songs.svg", class: "me-3") %>
+         <%= Song.count %> Songs
+        <% end %>
+        <%= link_to songs_path do %>
+         <%= image_tag("playlists.svg", class: "me-3") %>
+         <%= Playlist.count %> Playlists
+        <% end %>
+      </div>
+      <%= image_tag("chart.svg", class: "chart") %>
     </div>
 
-
-
-
     <div class="glass-container-two">
-
-        <h3 class="sets">LATEST SETS </h3>
-
-
-        <ul class="stats-info">
-          <li> <%= current_user.profile.first_name %> </li>
-          <li> <%= current_user.profile.first_name %> </li>
-          <li> <%= current_user.profile.first_name %> </li>
-        </ul>
-
-
-
-        <%= image_tag("CD.svg", class: "cd") %>
-
+      <h3 class="have">TOP SETS</h3>
+      <div class="stats">
+        <%= link_to songs_path do %>
+         <%= image_tag("playlists.svg", class: "me-3") %>
+         <%= Playlist.last.name%>
+        <% end %>
+        <%= link_to songs_path do %>
+         <%= image_tag("playlists.svg", class: "me-3") %>
+         <%= Playlist.last.name %>
+        <% end %>
+      </div>
+      <%= image_tag("CD.svg", class: "cd") %>
     </div>
-
-
   </div>
-
 </div>
