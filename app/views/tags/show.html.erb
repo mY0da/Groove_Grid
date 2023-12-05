@@ -1,5 +1,5 @@
 <h1>Songs tagged with <strong><em><%= @tag.name %></em></strong></h1>
-
+<%= render "/shared/audio_player"%>
 <ul>
   <% @tag.songs.each do |song| %>
     <li><%= link_to song.name, song_path(song) %></li>
