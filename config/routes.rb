@@ -8,8 +8,11 @@ Rails.application.routes.draw do
   get "welcome_page", to: "pages#welcome_page", as: :welcome_page
   get "welcome_video", to: "pages#welcome_video", as: :welcome_video
 
-  resources :songs, only: %i[index new create show]
+  resources :songs, only: %i[index new create show edit]
   resources :profiles, controller: 'profiles'
-  resources :playlists, only: %i[index new create show]
+  resources :playlists do
+    resources :playlist_songs, only: %i[new create]
+  end
   resources :tags
+  resources :playlist_songs, only: :destroy
 end

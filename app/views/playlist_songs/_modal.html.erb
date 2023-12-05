@@ -1,0 +1,9 @@
+<%= simple_form_for [playlist, playlist_song] do |f| %>
+  <div class="modal-body">
+    <%= f.association :song, collection: Song.all.order(:name), prompt: "Select a song", input_html: { data: { controller: "tom-select" } } %>
+  </div>
+  <div class="modal-footer">
+    <%= f.submit "Add song", class: "btn btn-flat" %>
+    <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Back</button>
+  </div>
+<% end %>

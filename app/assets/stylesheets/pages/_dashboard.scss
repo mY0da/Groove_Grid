@@ -1,15 +1,14 @@
-.dashboard_container{
-  display:flex !important;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-}
-
 .dashboard{
   margin-bottom: 10%;
   margin-left: 10%;
 }
 
+.dashboard_container{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
 
 .glass-container-two {
   width: 380px;
@@ -30,18 +29,19 @@
   margin-left: 30%;
 }
 
-.sets{
-  color: #3D44B3;
-  font-family: roboto;
-  letter-spacing: 6%;
-  margin-top: 10%;
-  margin-left: 25%;
+.stats {
+  margin: 40px 40px 40px 40px;
+  padding-left: 16px;
+  font-size: 25px;
+  color: #818181;
+  display: grid;
+  a{
+    text-decoration: none;
+  }
 }
 
-.stats-info{
-  margin-left: 5%;
-  list-style-type: none;
-  padding: 10% 10% 10% 10%;
+.stats a:hover {
+  color: #777DE0;
 }
 
 .chart{

@@ -20,7 +20,7 @@ class PlaylistsController < ApplicationController
 
   def show
     @playlist = Playlist.find(params[:id])
-    @playlist_songs = Playlist.songs
+    @playlist_song = PlaylistSong.new
     render :show
   end
 

@@ -17,7 +17,6 @@ class ProfilesController < ApplicationController
     @profile.status = 'active' if step == steps.last
 
     @profile.update(profile_params)
-    #raise
     render_wizard @profile
   end
 

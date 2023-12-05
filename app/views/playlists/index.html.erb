@@ -1,33 +1,18 @@
-<div class="container">
-
-  <h1>Your Playlists</h1>
-
-  <p>
-    <div class="search-bar">
-      <input type="text" placeholder="Search...">
-    </div>
-  </p>
-
-  <p>
-    <div class ="song-table-container">
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Songs</th>
-          </tr>
-        </thead>
-        <tbody>
-        <% @playlists.each do |playlist| %>
-
-            <tr>
-              <td><%= playlist.name %></td>
-              <td class="primary-lavender-2"><%= playlist.songs.length %> Songs</td>
-            </tr>
-
+<h1 class="your-playlists">Your Playlists</h1>
+<div class="song-table-container">
+  <div class="playlists">
+    <% @playlists.each do |playlist| %>
+      <div class="glass-container-three m-2" data-controller="path-link" data-path="<%= playlist_path(playlist) %>">
+        <%= link_to playlist, style: 'text-decoration: none' do %>
+          <%= image_tag "Sphere.png", class: "sphere"%>
         <% end %>
-        <tbody>
-      </table>
-    </div>
-  </p>
+        <div class="playlist-name">
+          <%= playlist.name %>
+        </div>
+        <div class="playlist-songs">
+          <%= playlist.songs.length %> songs
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
