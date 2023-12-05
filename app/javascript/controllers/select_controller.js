@@ -8,6 +8,7 @@ export default class extends Controller {
   }
 
   selectSong(event) {
+    console.log(event.target.parentElement)
     const songUrl = event.target.parentElement.dataset['url'];
     const songJSON = event.target.parentElement.dataset['song'];
     const songInfo = JSON.parse(songJSON);

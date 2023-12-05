@@ -15,6 +15,8 @@
   Tags:
   <% if @song.tags.present? %>
     <% @song.tags.each do |tag| %>
+      <% tag_song = TagSong.find_by(song: @song, tag: tag) %>
+      <%= link_to "X", remove_tag_song_path(tag_song), data: { turbo_method: :post, turbo_confirm: "Are you sure you want to remove #{tag.name} from your #{@song.name} playlist"}, class: 'text-danger' %>
       <span class="tag"><%= link_to tag.name, tag_path(tag) %></span>
     <% end %>
   <% else %>

@@ -11,8 +11,6 @@
   border-right: 1px solid #CECECE;
   background: rgba(28, 27, 23, 0.60);
   backdrop-filter: blur(16px);
-  position: sticky;
-  top: 0;
 }
 
 span {
@@ -36,6 +34,7 @@ h1{
   font-size: 25px;
   color: #818181;
   display: grid;
+
 }
 
 .sidebar-list a:hover {
