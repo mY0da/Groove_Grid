@@ -1,28 +1,15 @@
-<div class="container">
-
-  <h1>Your tags</h1>
-
-  <p>
-    <div class="search-bar">
-      <input type="text" placeholder="Search...">
-    </div>
-  </p>
-
-  <p>
-    <div class ="song-table-container">
-      <table>
-        <tbody>
-          <% @tags.each do |tag| %>
-            <tr>
-              <td class="grey">
-                <%= link_to tag_path(tag) do %>
-                  <span class="song-tag"><%= tag.name %></span>
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </p>
+<h1 class="your-playlists">Your tags</h1>
+<div class="song-table-container">
+  <div class="playlists">
+    <% @tags.each do |tag| %>
+      <div class="glass-container-three m-2" data-controller="path-link" data-path="<%= tag_path(tag) %>">
+        <%= link_to tag, style: 'text-decoration: none' do %>
+          <%= image_tag "Sphere.png", class: "sphere"%>
+        <% end %>
+        <div class="playlist-name">
+          <%= tag.name %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
