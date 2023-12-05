@@ -3,5 +3,7 @@
   <%= f.text_field :name,
           required: true,
           class: "form-control text-box white"%>
-  <%= f.submit %>
+  <div class="form-actions btn bgd-btn">
+    <%= f.submit "Create Playlist", class: "btn white"%>
+  </div>
 <% end %>

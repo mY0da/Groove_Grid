@@ -1,9 +1,8 @@
 <h1 class="your-playlists">Your Playlists</h1>
-
 <div class="song-table-container">
   <div class="playlists">
     <% @playlists.each do |playlist| %>
-      <div class="glass-container-three m-2">
+      <div class="glass-container-three m-2" data-controller="path-link" data-path="<%= playlist_path(playlist) %>">
         <%= link_to playlist, style: 'text-decoration: none' do %>
           <%= image_tag "Sphere.png", class: "sphere"%>
         <% end %>

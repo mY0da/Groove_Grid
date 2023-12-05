@@ -10,6 +10,7 @@ PlaylistSong.destroy_all
 Song.destroy_all
 Label.destroy_all
 Artist.destroy_all
+Profile.destroy_all
 User.destroy_all
 
 puts 'Creating users'

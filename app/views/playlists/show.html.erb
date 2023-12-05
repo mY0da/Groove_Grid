@@ -27,7 +27,7 @@
           </tr>
         </thead>
         <tbody>
-        <% @playlist_songs.each do |song| %>
+        <% @playlist.songs.each do |song| %>
           <tr data-action="click->select#selectSong" data-song="<%= song.to_json %>" data-url="<%= cl_video_path song.audio_file.key || '' %>">
             <td><%= song.name %></td>
             <td class="primary-lavender-2"><%= song.bpm %></td>
@@ -43,5 +43,5 @@
       </table>
     </div>
   </p>
-
 </div>
+<%= render "playlist_songs/modal", playlist: @playlist, playlist_song: @playlist_song %>
