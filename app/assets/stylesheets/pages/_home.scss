@@ -104,6 +104,7 @@ button {
   background-color: transparent;
   color: white;
   padding: 10px;
+  border-bottom: 20%;
   cursor: pointer;
 }
 
@@ -143,12 +144,12 @@ button {
   display: flex;
 }
 
-.form-control {
+.form-control-search {
   width: 200px;
   box-sizing: border-box;
 }
 
-.btn {
+.btn-search {
   margin-left: 10px;
   background-color: #3d44b3;
 }

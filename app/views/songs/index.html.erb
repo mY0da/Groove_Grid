@@ -31,10 +31,12 @@
       <div class= "search-bar-wrapper">
         <%= text_field_tag :query,
         params[:query],
-        class:"form-control text-box white",
+        class:"form-control-search text-box white",
         placeholder:"Find a song";
         %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+        <div class="form-actions btn-search btn clear-btn">
+          <%= submit_tag "Search", class: "btn white" %>
+        </div>
       </div>
     <% end %>
   </div>
