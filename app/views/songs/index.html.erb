@@ -1,30 +1,6 @@
 <div class="container">
   <h1>Today's Rhythm</h1>
-
-    <!--<script src="https://unpkg.com/stimulus@2.0.0/dist/stimulus.umd.js"></script>
-      <div class="dropdown" data-controller="button" class="flex-item">
-          <button data-action="button#toggle">
-              <span>Tag</span>  .
-              <i class="fa-solid fa-tag" style="color: #3d44b3;" alt="Tag Icon"></i>
-          </button>
-          <div id="tagButton" class="dropdown-content">
-              <a href="#">Option A</a>
-              <a href="#">Option B</a>
-              <a href="#">Option C</a>
-          </div>
-      </div>
-
-      <div class="dropdown" data-controller="button">
-          <button data-action="button#toggle">
-              <span>Key</span>
-              <i class="fa-solid fa-scale-balanced" style="color: #3d44b3;"></i>
-          </button>
-          <div id="tagButton" class="dropdown-content">
-              <a href="#">Option A</a>
-              <a href="#">Option B</a>
-              <a href="#">Option C</a>
-          </div>
-      </div>-->
+  <%= render "/shared/audio_player"%>
 <p>
   <div class="container-search-bar">
     <%= form_tag songs_path, method: :get do %>

@@ -1,5 +1,5 @@
 <h1>Songs tagged with <strong><em><%= @tag.name %></em></strong></h1>
-
+<%= render "/shared/audio_player"%>
 <p>
   <div class="container-search-bar">
     <%= form_tag songs_path, method: :get do %>

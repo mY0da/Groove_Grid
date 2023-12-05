@@ -8,8 +8,18 @@ Rails.application.routes.draw do
   get "welcome_page", to: "pages#welcome_page", as: :welcome_page
   get "welcome_video", to: "pages#welcome_video", as: :welcome_video
 
-  resources :songs, only: %i[index new create show edit]
+  resources :songs, except: [:destroy]
+
+  resources :songs do
+    member do
+      post 'add_tag'
+      post 'remove_tag'
+    end
+    resources :tag_songs, only: %i[destroy]
+  end
+
   resources :profiles, controller: 'profiles'
+
   resources :playlists do
     resources :playlist_songs, only: %i[new create destroy]
   end

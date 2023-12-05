@@ -11,11 +11,29 @@
   <p>Song not found</p>
 <% end %>
 
-<%= link_to 'Back', songs_path %>
-
 <p>
   Tags:
-  <% @song.tags.each do |tag| %>
-    <%= link_to tag.name, tag_path(tag) %>
+  <% if @song.tags.present? %>
+    <% @song.tags.each do |tag| %>
+      <% tag_song = TagSong.find_by(song: @song, tag: tag) %>
+      <%= link_to "X", remove_tag_song_path(tag_song), data: { turbo_method: :post, turbo_confirm: "Are you sure you want to remove #{tag.name} from your #{@song.name} playlist"}, class: 'text-danger' %>
+      <span class="tag"><%= link_to tag.name, tag_path(tag) %></span>
+    <% end %>
+  <% else %>
+    No tags added
   <% end %>
 </p>
+
+<%= form_with(url: add_tag_song_path(@song), method: :post) do |form| %>
+  <%= form.label :tag_name, 'Add Tag:' %>
+  <%= form.text_field :tag_name %>
+  <%= form.submit 'Add' %>
+<% end %>
+
+<%= form_with(url: remove_tag_song_path(@song), method: :post) do |form| %>
+  <%= form.label :tag_name, 'Remove Tag:' %>
+  <%= form.text_field :tag_name %>
+  <%= form.submit 'Remove' %>
+<% end %>
+
+<%= link_to 'Back', songs_path %>
