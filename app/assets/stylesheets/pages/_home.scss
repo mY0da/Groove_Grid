@@ -24,7 +24,7 @@
     text-align: center;
     }
 
-  th { // Titre
+  th { // Title
     position: sticky;
     color: black;
     top: 0;
@@ -66,9 +66,9 @@
 
   .song-tag {
     background-color: #3d44b3;
-    border: 1px solid #3d44b3; /* Bordure de 2 pixels solide avec la couleur slateblue (code couleur HTML) */
-    border-radius: 14px; /* Coins arrondis de 8 pixels */
-    padding: 3px 10px; /* Espacement intérieur de 5 pixels en haut/bas et 10 pixels à gauche/droite */
+    border: 1px solid #3d44b3; /* Bordure de 1 pixel solide avec la couleur slateblue (code couleur HTML) */
+    border-radius: 14px; /* Coins arrondis de 14 pixels */
+    padding: 3px 10px; /* Espacement intérieur de 3 pixels en haut/bas et 10 pixels à gauche/droite */
     display: inline-block; /* Permet à la bordure de s'adapter à la largeur du contenu */
   }
 

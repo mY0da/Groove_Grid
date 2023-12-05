@@ -1,3 +1,16 @@
-<h1>Upload a new song</h1>
 <%= render "/shared/audio_player"%>
-<%= render 'form', song: @song %>
+
+
+<div class="w-100 h-100 d-inline-flex flex-column justify-content-center align-items-center">
+  <div class="glass-container-song">
+        <div class="justify-content-start">
+              <h1 class="upload mt-3 mb-5">Upload a new song</h1>
+            <div class="row parent-container justify-content-center">
+              <div class="formi">
+                <%= render 'form', song: @song %>
+              </div>
+              <%= image_tag "user2_standing.svg", class: "child-avatar-container" %>
+            </div>
+        </div>
+  </div>
+</div>

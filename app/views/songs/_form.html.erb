@@ -1,12 +1,13 @@
 <%= form_with model: Song.new, url: songs_path, multipart: true do |f| %>
-  <%= f.file_field :audio_file %>
+  <%= f.file_field :audio_file, value: "", class: "mb-5 lavender-3"%>
   <%# Criar um input para o nome da música em vez de ir buscar o nome do ficheiro %>
   <!--p>
   <%#= f.text_field :name, placeholder: 'Song title' %>
   </p-->
-  <p>
-    <%= f.label :tag_list %>
-    <%= f.text_field :tag_list %>
-  </p>
+  <h6 class="text-start">TAG IT</h6>
+  <%= f.text_field :tag_list,
+      required: true,
+      autofocus: true,
+      class: "form-control text-box white"%>
   <%= f.submit link_to songs_path(@song) %>
 <% end %>
