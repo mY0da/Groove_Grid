@@ -1,0 +1,5 @@
+<%= simple_form_for [@playlist, @playlist_song] do |f| %>
+  <%= f.association :song, prompt: "Select a song", input_html: {data: {controller: "tom-select"}} %>
+  <%# <%= f.input :song_id, as: :hidden, input_html: { value: song.id } %>
+  <%= f.submit class: "btn btn-flat" %>
+<% end %>
