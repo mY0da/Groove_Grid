@@ -1,5 +1,5 @@
 .your-playlists{
-  margin-left: 2%;
+  margin-left: 3%;
 }
 
 .glass-container-three {
@@ -12,14 +12,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
+
+// when we have less than 4 the playlists get centered...
 .playlists{
   align-items: center;
   display: flex;
-  justify-content: space-evenly;
   flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-left: 3%;
 }
 
 .song-table-container {
