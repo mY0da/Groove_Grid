@@ -1,5 +1,5 @@
-import { Controller } from "@hotwired/stimulus"
-import TomSelect from 'tom-select'
+
+import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
   connect() {

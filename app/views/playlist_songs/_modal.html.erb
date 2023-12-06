@@ -2,10 +2,18 @@
   <%= simple_form_for [playlist, playlist_song] do |f| %>
     <div class="modal-body rounded-pill">
       <%= f.label "Songs", class: "mb-0 mt-0 label-box" %>
-      <%= f.association :song, collection: Song.all.where(user: current_user).order(:name), class: "label-box", prompt: "Select a song", label: false, input_html: { data: { controller: "tom-select" } } %>
+      <%= f.association :song, multiple: true, collection: Song.all.where(user: current_user).order(:name),class: "label-box", prompt: "Select a song", label: false, input_html: { data: { controller: "" } } %>
     </div>
     <div class="modal-footer clear-btn justify-content-center">
       <%= f.submit "Add song", class: "btn white" %>
     </div>
   <% end %>
 </div>
+
+
+<link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
+<script>
+var settings = {maxItems: 30};
+new TomSelect('#playlist_song_song_id',settings);
+</script>
