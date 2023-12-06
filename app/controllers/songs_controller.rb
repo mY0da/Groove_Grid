@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  before_action :set_song, only: %i[show edit add_tag remove_tag]
+  before_action :set_song, only: %i[show edit add_tag remove_tag destroy]
 
   def index
     if params[:query].present?
@@ -51,7 +51,7 @@ class SongsController < ApplicationController
   def remove_tag
     tag_name = params[:tag_name]
     tag = Tag.find_by(name: tag_name)
-    
+
     if tag
       @song.tags.delete(tag)
       redirect_to @song, notice: "Tag '#{tag_name}' removed from the song."
@@ -63,7 +63,7 @@ class SongsController < ApplicationController
   private
 
   def set_song
-    @song = Song.find(params[:id])
+    @song = Song.find_by_id(params[:id])
   end
 
   def song_params

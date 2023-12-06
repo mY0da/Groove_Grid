@@ -3,13 +3,13 @@ playlist = RSpotify::Playlist.find('hujfjm5lg1g6pdm9py6zcosyk', '4VqaukGDVsQaUm4
 
 puts 'Destroying old'
 
-Tag.destroy_all
-TagSong.destroy_all
 Playlist.destroy_all
 PlaylistSong.destroy_all
 Song.destroy_all
+TagSong.destroy_all
 Label.destroy_all
 Artist.destroy_all
+Tag.destroy_all
 Profile.destroy_all
 User.destroy_all
 
