@@ -354,7 +354,6 @@ DEPENDENCIES
   jbuilder
   pg (~> 1.1)
   puma (>= 5.0)
-  pundit
   rails (~> 7.1.2)
   rspotify
   sassc-rails
