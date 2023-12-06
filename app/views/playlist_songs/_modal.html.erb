@@ -4,9 +4,7 @@
       <%= f.label "Songs" %>
       <%= f.association :song, multiple: true, collection: Song.all.where(user: current_user).order(:name),class: "label-box", prompt: "Select a song", label: false, input_html: { data: { controller: "" } } %>
     </div>
-    <div class="d-fex justify-content-end">
-      <%= image_submit_tag("square-plus-regular.svg") %>
-    </div>
+    <%= image_submit_tag("square-plus-regular.svg") %>
   <% end %>
 </div>
 
