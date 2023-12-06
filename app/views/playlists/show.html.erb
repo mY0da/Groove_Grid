@@ -37,7 +37,7 @@
             <th>Artist</th>
             <th class="primary-lavender-4">Scale</th>
             <th>Duration</th>
-            <th class="primary-lavender-4">Tags</th>
+            <th class="primary-lavender-4">Genre</th>
             <th>Delete</th>
           </tr>
         </thead>
@@ -52,7 +52,7 @@
             <% t = song.seconds.to_i %>
             <% song_duration = Time.at(t).utc.strftime("%H:%M:%S") %>
             <td class="grey"><%= song_duration[3,8] %></td>
-            <td class="grey"><span class="song-tag"><%= song.tags.name %></td>
+            <td class="grey"><span class="song-tag"><%= song.genre %></td>
             <td><%= link_to image_tag("X.svg"), playlist_song_path(playlist_song), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{song.name} from your #{@playlist.name} playlist"}, class: 'text-danger' %></td>
           </tr>
         <% end %>

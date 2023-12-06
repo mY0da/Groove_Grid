@@ -17,8 +17,8 @@ class SongsController < ApplicationController
 
   def create
     @song = Song.new(song_params)
-    @song.label = Label.find_by(name: "Unknown Label")
-    @song.artist = Artist.find_by(name: "Unknown Artist")
+    @song.label = Label.find_or_create_by(name: "Unknown Label")
+    @song.artist = Artist.find_or_create_by(name: "Unknown Artist")
     @song.user = current_user
     @song.name = params[:song][:audio_file].original_filename
 
@@ -55,6 +55,6 @@ class SongsController < ApplicationController
   end
 
   def song_params
-    params.require(:song).permit(:audio_file, :name, :tag_list)
+    params.require(:song).permit(:audio_file, :name, :tag_list, :genre)
   end
 end
