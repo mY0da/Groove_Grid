@@ -1,30 +1,22 @@
 <% if @song %>
-  <h1><%= @song.name %></h1>
-  <p>Artist: <%= @song.artist.name %></p>
-  <p>Label: <%= @song.label.name %></p>
+  <h1 class="song-name"><%= @song.name %></h1>
 
-  <%= render "/shared/audio_player"%>
-
-  <audio controls>
-    <source src="<%= cl_video_path @song.audio_file.key, controls: true %>" type="audio/mp3">
-  </audio>
-
+  <div class="stats">
+    <%= link_to songs_path do %>
+      <%= image_tag("user-03.svg", class: "me-3") %>
+      <%= @song.artist.name %>
+    <% end %>
+    <%= link_to playlists_path do %>
+      <%= image_tag("label.svg", class: "me-3") %>
+      <%= @song.label.name  %>
+    <% end %>
+  </div>
 <% else %>
   <p>Song not found</p>
 <% end %>
 
-<p>
-  Tags:
-  <% if @song.tags.present? %>
-    <% @song.tags.each do |tag| %>
-      <% tag_song = TagSong.find_by(song: @song, tag: tag) %>
-      <%= link_to "X", remove_tag_song_path(tag_song), data: { turbo_method: :post, turbo_confirm: "Are you sure you want to remove #{tag.name} from your #{@song.name} playlist"}, class: 'text-danger' %>
-      <span class="tag"><%= link_to tag.name, tag_path(tag) %></span>
-    <% end %>
-  <% else %>
-    No tags added
-  <% end %>
-</p>
+
+
 
 <%= form_with(url: add_tag_song_path(@song), method: :post) do |form| %>
   <%= form.label :tag_name, 'Add Tag:' %>
@@ -32,10 +24,7 @@
   <%= form.submit 'Add' %>
 <% end %>
 
-<%= form_with(url: remove_tag_song_path(@song), method: :post) do |form| %>
-  <%= form.label :tag_name, 'Remove Tag:' %>
-  <%= form.text_field :tag_name %>
-  <%= form.submit 'Remove' %>
-<% end %>
 
-<%= link_to 'Back', songs_path %>
+<div class="form-actions m-5">
+  <%= link_to image_tag("back_arrow.png"), songs_path %>
+</div>
