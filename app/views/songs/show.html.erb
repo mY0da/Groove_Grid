@@ -15,6 +15,23 @@
   <p>Song not found</p>
 <% end %>
 
+
+<!--display tags-->
+<div class="display-tags ms-5">
+  <% if @song.tags.present? %>
+    <% @song.tag_songs.each do |tag_song| %>
+      <td><%= link_to image_tag("X.svg"),
+              destroy_tag_path(tag_song),
+              data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{@song.tags.where(id: tag_song.tag_id)[0].name}?"},
+              class: 'text-danger' %></td>
+      <span class="tag"><%= link_to "#{@song.tags.where(id: tag_song.tag_id)[0].name}", tags_path(tag), style: 'text-decoration: none'%></span>
+    <% end %>
+  <% else %>
+    No tags added
+  <% end %>
+</div>
+
+
 <!--add tag-->
 <%= form_with(url: add_tag_song_path(@song), method: :post) do |form| %>
   <%= form.text_field :tag_name,
@@ -25,6 +42,7 @@
     <%= form.submit "Add Tag"%>
   </div>
 <% end %>
+
 
 <!--go back-->
 <div class="form-actions ms-5">
