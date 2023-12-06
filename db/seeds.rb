@@ -17,7 +17,7 @@ puts 'Creating users'
 
 first_user = User.create!(email: 'tony@merguez.com', password: 'test123')
 
-profile = Profile.create!(user: first_user, first_name: 'Martim', last_name: 'Costa')
+profile = Profile.create!(user: first_user, first_name: 'Martim', last_name: 'Costa', avatar: "2")
 
 puts 'Creating label'
 
