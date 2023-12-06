@@ -20,22 +20,6 @@
     </div>
   </div>
 
-  <!-- searchbar -->
-<div class="container-search-bar">
-  <%= form_tag search_playlists_path, method: :get do %>
-    <div class="search-bar-wrapper">
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control-search text-box white",
-        placeholder: "Find a song"
-      %>
-      <div class="form-actions btn-search btn clear-btn">
-        <%= submit_tag "Search", class: "btn white" %>
-      </div>
-    </div>
-  <% end %>
-</div>
-<!-- searchbar -->
   <p>
     <div class ="song-table-container">
       <table>
