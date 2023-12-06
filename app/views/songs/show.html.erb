@@ -3,6 +3,8 @@
   <p>Artist: <%= @song.artist.name %></p>
   <p>Label: <%= @song.label.name %></p>
 
+  <%= render "/shared/audio_player"%>
+
   <audio controls>
     <source src="<%= cl_video_path @song.audio_file.key, controls: true %>" type="audio/mp3">
   </audio>

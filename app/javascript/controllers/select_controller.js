@@ -8,11 +8,12 @@ export default class extends Controller {
   }
 
   selectSong(event) {
-    console.log(event.target.parentElement)
     const songUrl = event.target.parentElement.dataset['url'];
     const songJSON = event.target.parentElement.dataset['song'];
     const songInfo = JSON.parse(songJSON);
-
+    const currentlyPlaying = document.querySelector(".currently-playing");
+    currentlyPlaying.innerText = songInfo['name'];
+    
     const wavesurfer = document.querySelector('#audio-player').musicPlayer.wavesurfer
     wavesurfer.load(songUrl);
   }
