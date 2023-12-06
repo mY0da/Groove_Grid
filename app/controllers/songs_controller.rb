@@ -6,7 +6,7 @@ class SongsController < ApplicationController
       sql_query = "name ILIKE :query"
       @songs = Song.where(sql_query, query: "%#{params[:query]}%")
     else
-      @songs = Song.all
+      @songs = current_user.songs
     end
     render :index
   end

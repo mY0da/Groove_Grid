@@ -14,5 +14,6 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @playlists = current_user.playlists
   end
 end
