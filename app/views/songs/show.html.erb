@@ -1,3 +1,4 @@
+<!--display song name, artist and label-->
 <% if @song %>
   <h1 class="song-name"><%= @song.name %></h1>
   <div class="stats">
@@ -14,14 +15,18 @@
   <p>Song not found</p>
 <% end %>
 
-
+<!--add tag-->
 <%= form_with(url: add_tag_song_path(@song), method: :post) do |form| %>
-  <%= form.label :tag_name, 'Add Tag:' %>
-  <%= form.text_field :tag_name %>
-  <%= form.submit 'Add' %>
+  <%= form.text_field :tag_name,
+      placeholder: '   Add your tags',
+      required: true,
+      class: "form-control-search text-box white w-25 m-5 p-1" %>
+  <div class="btn bgd-btn btn-lg">
+    <%= form.submit "Add Tag"%>
+  </div>
 <% end %>
 
-
-<div class="form-actions m-5">
+<!--go back-->
+<div class="form-actions ms-5">
   <%= link_to image_tag("back_arrow.png"), songs_path %>
 </div>
