@@ -1,28 +1,21 @@
 <%= render "/shared/audio_player"%>
 
 <div class="container">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
   <div class="d-flex">
     <h1 class="mb-0"><%= @playlist.name %></h1>
+    <button id="downloadButton" class= "form-actions btn-search btn clear-btn btn white ">Download Playlist</button>
     <%= link_to image_tag("trash.svg"), playlist_path(@playlist), class: "ms-3", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this playlist?" } %>
+
   </div>
 
 
   <div class="d-flex justify-content-between">
-    <div>
+    <div class = playlist-song-list>
       <%= render "playlist_songs/modal", playlist: @playlist, playlist_song: @playlist_song %>
     </div>
     <div class="d-flex align-items-end">
       <%= form_tag playlist_path(@playlist), method: :get do %>
-        <div class= "search-bar-wrapper">
-          <%= text_field_tag :query,
-          params[:query],
-          class:"form-control-search text-box white",
-          placeholder:"Find a song";
-          %>
-          <div class="form-actions btn-search btn clear-btn">
-            <%= submit_tag "Search", class: "btn white" %>
-          </div>
-        </div>
       <% end %>
     </div>
   </div>
@@ -37,7 +30,7 @@
             <th>Artist</th>
             <th class="primary-lavender-4">Scale</th>
             <th>Duration</th>
-            <th class="primary-lavender-4">Tags</th>
+            <th class="primary-lavender-4">Genre</th>
             <th>Delete</th>
           </tr>
         </thead>
@@ -52,7 +45,7 @@
             <% t = song.seconds.to_i %>
             <% song_duration = Time.at(t).utc.strftime("%H:%M:%S") %>
             <td class="grey"><%= song_duration[3,8] %></td>
-            <td class="grey"><span class="song-tag"><%= song.tags.name %></td>
+            <td class="grey"><span class="song-tag"><%= song.genre %></td>
             <td><%= link_to image_tag("X.svg"), playlist_song_path(playlist_song), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{song.name} from your #{@playlist.name} playlist"}, class: 'text-danger' %></td>
           </tr>
         <% end %>
@@ -61,3 +54,36 @@
     </div>
   </p>
 </div>
+
+<script>
+  document.getElementById('downloadButton').addEventListener('click', function() {
+    // Create a JSZIP instance
+    var zip = new JSZip();
+
+    // Add each files from the playlist to .zip
+    <% @playlist.songs.each do |song| %>
+      zip.file("<%= song.name %>.mp3", "<%= cl_video_path song.audio_file.key || '' %>");
+    <% end %>
+
+    // Generate the .zip file
+    zip.generateAsync({ type: "blob" })
+      .then(function(content) {
+        // Create an URL object for .zip file content
+        var zipUrl = URL.createObjectURL(content);
+
+        // Créer un lien invisible pour le téléchargement
+        var link = document.createElement('a');
+        link.href = zipUrl;
+        link.download = '<%= @playlist.name %>.zip';
+
+        // Ajouter le lien au document
+        document.body.appendChild(link);
+
+        // Déclencher le clic sur le lien pour démarrer le téléchargement
+        link.click();
+
+        // Retirer le lien du document après le téléchargement
+        document.body.removeChild(link);
+      });
+  });
+</script>

@@ -21,12 +21,13 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin-left: 3%;
+  margin-left: 7%;
 }
 
 .song-table-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
 }
 
 .sphere{
@@ -48,4 +49,16 @@
   color: #777DE0;
   align-items: center;
   justify-content: center;
+}
+
+.bgd-btn-two{
+  padding: 6px 12px 6px 12px;
+  text-align: center;
+  border-radius: 32px;
+  background: #A2A5FC;
+  text-decoration: none;
+  margin-left: 7%;
+  :hover{
+  background: #777DE0;
+  }
 }

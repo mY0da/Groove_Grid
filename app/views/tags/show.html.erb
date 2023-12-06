@@ -1,28 +1,12 @@
-<h1>Songs tagged with <strong><em><%= @tag.name %></em></strong></h1>
+<h1 class="your-playlists"> Songs tagged with <strong><span><%= @tag.name %></span></strong></h1>
 <%= render "/shared/audio_player"%>
-<p>
-  <div class="container-search-bar">
-    <%= form_tag songs_path, method: :get do %>
-      <div class= "search-bar-wrapper">
-        <%= text_field_tag :query,
-        params[:query],
-        class:"form-control-search text-box white",
-        placeholder:"Find a song";
-        %>
-        <div class="form-actions btn-search btn clear-btn">
-          <%= submit_tag "Search", class: "btn white" %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</p>
 
-<p>
-  <div class ="song-table-container">
+<div class="container">
+  <div class ="song-table-container mt-4">
     <table style="width: 100%; table-layout: fixed;">
       <thead>
         <tr>
-          <th>Song title</th>
+          <th class="td:first-child">Song title</th>
           <th class="primary-lavender-4">BPM</th>
           <th>Artist</th>
           <th class="primary-lavender-4">Scale</th>
@@ -33,7 +17,7 @@
       <tbody>
       <% @tag.songs.each do |song| %>
         <tr data-action="click->select#selectSong" data-song="<%= song.to_json %>" data-url="<%= cl_video_path song.audio_file.key || '' %>">
-          <td><%= link_to song.name, song_path(song) %></td>
+          <td><%= link_to song.name, song_path(song), style: 'text-decoration: none' %></td>
           <td class="primary-lavender-2"><%= song.bpm %></td>
           <td class="grey"><%= song.artist.name %></td>
           <td class="primary-lavender-2"><%= song.scale %></td>
@@ -46,5 +30,4 @@
       <tbody>
     </table>
   </div>
-</p>
 </div>

@@ -1,5 +1,11 @@
 <h1 class="your-playlists">Your Playlists</h1>
 <%= render "/shared/audio_player"%>
+
+
+<div class="m-4">
+ <%= link_to "New Playlist ", new_playlist_path, class: "bgd-btn-two"%>
+</div>
+
 <div class="song-table-container">
   <div class="playlists">
     <% @playlists.each do |playlist| %>

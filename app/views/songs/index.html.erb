@@ -1,9 +1,11 @@
-<div class="container">
-  <h1>Today's Rhythm</h1>
-  <%= render "/shared/audio_player"%>
+<h1 class="your-playlists">Your Playlists</h1>
+<%= render "/shared/audio_player"%>
 
+
+<div class="container">
   <p>
     <div class="container-search-bar">
+      <%= link_to "Add Song ", new_song_path, class: "bgd-btn-three"%>
       <%= form_tag songs_path, method: :get do %>
         <div class= "search-bar-wrapper">
           <%= text_field_tag :query,
@@ -27,7 +29,7 @@
           <th>Artist</th>
           <th class="primary-lavender-4">Scale</th>
           <th>Duration</th>
-          <th class="primary-lavender-4">Tags</th>
+          <th class="primary-lavender-4">Genre</th>
         </tr>
       </thead>
       <tbody>
@@ -40,7 +42,7 @@
             <% t = song.seconds.to_i %>
             <% song_duration = Time.at(t).utc.strftime("%H:%M:%S") %>
             <td class="grey"><%= song_duration[3,8] %></td>
-            <td class="grey"><span class="song-tag"><%= song.tags.name %></td>
+            <td class="grey"><span class="song-tag"><%= song.genre %></td>
           </tr>
         <% end %>
       <tbody>

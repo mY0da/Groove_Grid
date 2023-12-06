@@ -1,0 +1,167 @@
+.container {
+  left: 25%;
+  bottom: 0px;
+  top: 0px;
+  justify-content: space-evenly;
+}
+
+.song-table-container {
+
+  max-height: 400px; /* Set the desired maximum height */
+  overflow-y: auto; /* Enable vertical scrollbar */
+  table-layout: auto;
+
+  table, th, td, tr {
+    top: 10px;
+    border-collapse: collapse;
+    padding: 12px;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%; /* 35.2px */
+    width: 100%;
+    text-align: center;
+    }
+
+  th { // Title
+    position: sticky;
+    color: black;
+    top: 0;
+    z-index: 2;
+    background-color: rgba(248, 245, 245, 0.912);
+  }
+
+  td{ // lignes
+    margin: 5%;
+    color: #F5F7FA;
+    position: relative; //added
+    border-bottom: 4px solid transparent;
+  }
+
+  td::before { //added
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Couleur noire légèrement transparente */
+    z-index: -1;
+    pointer-events: none;
+    clip-path: inset(0); /* Utiliser le clip-path pour s'assurer que la couleur de fond ne dépasse pas le texte */
+  }
+
+  tr:hover td::before { //added
+    background-color: rgba(0, 0, 0, 0.2); /* Couleur noire légèrement transparente au survol */
+  }
+
+  .primary-lavender-2 {
+    color: #a2a5fc;
+  }
+
+  .primary-lavender-4{
+    color: #3d44b3
+  }
+
+  .song-tag {
+    background-color: #3d44b3;
+    border: 1px solid #3d44b3; /* Bordure de 1 pixel solide avec la couleur slateblue (code couleur HTML) */
+    border-radius: 14px; /* Coins arrondis de 14 pixels */
+    padding: 3px 10px; /* Espacement intérieur de 3 pixels en haut/bas et 10 pixels à gauche/droite */
+    display: inline-block; /* Permet à la bordure de s'adapter à la largeur du contenu */
+  }
+
+  .td:first-child  {
+    /* Cible en Css les cellules de tableau de la première colonne du tableau */
+    /* Listes de propriétés Css */
+    text-align: left;
+  }
+}
+
+// How to design the scrollbar :
+.song-table-container::-webkit-scrollbar {
+  width: 12px;
+}
+
+.song-table-container::-webkit-scrollbar-thumb {
+  background-color: #777de0;
+  border-radius: 6px;
+}
+
+.song-table-container::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+//How to design the dropdown buttons (tags, Scale) with toggled::after
+
+.dropdown {
+  display: inline-block;
+  margin: 10px;
+}
+
+button {
+  background-color: transparent;
+  color: white;
+  padding: 10px;
+  border-bottom: 20%;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.show {
+  display: block;
+
+}
+
+//How to design the search-bar:
+.container-search-bar {
+  text-align: right;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-bar-wrapper {
+  display: flex;
+}
+
+.form-control-search {
+  width: 200px;
+  box-sizing: border-box;
+}
+
+.btn-search {
+  margin-left: 10px;
+  background-color: #3d44b3;
+}
+
+
+.bgd-btn-three{
+  padding: 6px 12px 6px 12px;
+  text-align: center;
+  border-radius: 32px;
+  background: #A2A5FC;
+  text-decoration: none;
+  :hover{
+  background: #777DE0;
+  };
+}
