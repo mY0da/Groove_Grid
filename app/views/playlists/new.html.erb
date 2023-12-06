@@ -1,15 +1,18 @@
-<%= render "/shared/audio_player"%>
-  <div class="controls d-flex">
-    <div data-action="click->music-player#play">  <%= image_tag 'play.svg', class: 'bang-button', alt: 'bang-button', size: '25x25' %></div>
-    <div data-action="click->music-player#pause">  <%= image_tag 'pause.svg', class: 'bang-button', alt: 'bang-button', size: '25x25' %></div>
-  </div>
+<h1 class="create-playlist">Create New Playlist</h1>
 
-<%= form_with model: Playlist.new, url: playlists_path, multipart: true do |f| %>
-  <%= f.label :name, class: "form-label label-box"%>
-  <%= f.text_field :name,
-          required: true,
-          class: "form-control text-box white"%>
-  <div class="form-actions btn bgd-btn">
-    <%= f.submit "Create Playlist", class: "btn white"%>
+<%= render "/shared/audio_player"%>
+
+
+<div class="w-100 h-100 d-inline-flex flex-column justify-content-center align-items-center">
+  <div class="glass-container-playlist">
+        <div class="justify-content-start">
+          <h1 class="new-playlist">New Playlist</h1>
+            <div class="row parent-container">
+              <div class="formi">
+                <%= render 'form', playlist: @playlist %>
+              </div>
+              <%= image_tag "user2_standing.svg", class: "child-two-avatar-container" %>
+            </div>
+        </div>
   </div>
-<% end %>
+</div>

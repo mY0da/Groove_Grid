@@ -1,0 +1,52 @@
+.create-playlist{
+  margin-top: 5%;
+  margin-left: 5%;
+}
+
+.new-playlist{
+  margin-top: 5%;
+  margin-bottom: 30%;
+}
+
+.glass-container-playlist {
+  height: 450px;
+  width: 600px;
+  display: flex;
+  justify-content: space-evenly;
+  background: rgba(28, 27, 23, 0.60);
+  border-radius: 32px;
+  border: 1px #CECECE solid;
+  backdrop-filter: blur(32px);
+  padding: $spacer !important;
+  flex-direction: row;
+}
+
+.parent-container{
+ position: relative;
+}
+
+.child-two-avatar-container{
+  position: absolute;
+  bottom: -120px;
+  right: -152px;
+  width: 140px;
+  height: 261px;
+}
+
+h6{
+  color: #777DE0;
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 200;
+  letter-spacing: 1.2px;
+}
+
+.btn:hover {
+  color: white;
+}
+
+
+.lavender-3{
+  color: #777DE0;
+}
