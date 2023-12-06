@@ -1,11 +1,12 @@
-<div class="w-75">
+<div>
   <%= simple_form_for [playlist, playlist_song] do |f| %>
     <div class="modal-body rounded-pill">
-      <%= f.label "Songs", class: "mb-0 mt-0 label-box" %>
-      <%= f.association :song, collection: Song.all.where(user: current_user).order(:name), class: "label-box", prompt: "Select a song", label: false, input_html: { data: { controller: "tom-select" } } %>
+      <%= f.label "Add song"%>
+      <%= f.association :song, collection: Song.all.where(user: current_user).order(:name), prompt: "Select a song", label: false, input_html: { data: { controller: "tom-select" } } %>
     </div>
-    <div class="modal-footer clear-btn justify-content-center">
-      <%= f.submit "Add song", class: "btn white" %>
+    <div class="modal-footer clear-btn ">
+      <%= f.submit "Add", class: "btn white" %>
+      <i class="fa-solid fa-plus fa-sm" style="color: #3d44b3;"></i>
     </div>
   <% end %>
 </div>
