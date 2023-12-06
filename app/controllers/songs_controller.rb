@@ -43,9 +43,15 @@ class SongsController < ApplicationController
   end
 
   def remove_tag
-    tag = Tag.find_by(name: params[:tag_name])
-    @song.tags.delete(tag) if tag
-    redirect_to @song
+    tag_name = params[:tag_name]
+    tag = Tag.find_by(name: tag_name)
+    
+    if tag
+      @song.tags.delete(tag)
+      redirect_to @song, notice: "Tag '#{tag_name}' removed from the song."
+    else
+      redirect_to @song, alert: "Tag '#{tag_name}' not found."
+    end
   end
 
   private
