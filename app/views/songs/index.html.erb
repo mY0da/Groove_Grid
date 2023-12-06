@@ -30,6 +30,7 @@
           <th class="primary-lavender-4">Scale</th>
           <th>Duration</th>
           <th class="primary-lavender-4">Genre</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -43,6 +44,8 @@
             <% song_duration = Time.at(t).utc.strftime("%H:%M:%S") %>
             <td class="grey"><%= song_duration[3,8] %></td>
             <td class="grey"><span class="song-tag"><%= song.genre %></td>
+            <td><%= link_to image_tag("X.svg"), song_path(song), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{song.name}?"}, class: 'text-danger' %></td>
+
           </tr>
         <% end %>
       <tbody>

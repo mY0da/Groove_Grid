@@ -36,9 +36,15 @@ class SongsController < ApplicationController
   def edit
   end
 
+  def destroy
+    @song.destroy
+    redirect_to songs_path, status: :see_other
+  end
+
   def add_tag
-    @tag = Tag.find_or_create_by(name: params[:tag_name])
+    @tag = Tag.joins(:profiles).where(profiles: { user: current_user }).find_or_create_by(name: params[:tag_name])
     @song.tags << @tag
+    @tag.profiles << current_user.profile
     redirect_to @song
   end
 
@@ -57,7 +63,7 @@ class SongsController < ApplicationController
   private
 
   def set_song
-    @song = Song.where(user: current_user).find(params[:id])
+    @song = Song.find(params[:id])
   end
 
   def song_params
