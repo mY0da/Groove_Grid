@@ -6,9 +6,9 @@ class TagSongsController < ApplicationController
     redirect_to song_path(@tag_song.song), status: :see_other
   end
 
-    private
+  private
 
-    def set_tag_song
-      @tag_song = TagSong.find(params[:id])
-    end
+  def set_tag_song
+    @tag_song = TagSong.find(params[:id])
+  end
 end

@@ -8,15 +8,15 @@ Rails.application.routes.draw do
   get "welcome_page", to: "pages#welcome_page", as: :welcome_page
   get "welcome_video", to: "pages#welcome_video", as: :welcome_video
 
-  resources :songs, except: [:destroy]
+  resources :songs
 
   resources :songs do
     member do
       post 'add_tag'
-      post 'remove_tag'
+      # post 'remove_tag'
     end
-    resources :tag_songs, only: %i[destroy]
   end
+  resources :tag_songs, only: %i[destroy], as: "destroy_tag"
 
   resources :profiles, controller: 'profiles'
 
