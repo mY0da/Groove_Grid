@@ -3,13 +3,15 @@ class PlaylistSongsController < ApplicationController
   before_action :set_playlist, only: [:new, :create]
 
   def create
-    @playlist_song = PlaylistSong.new(playlist_song_params)
-    @playlist_song.playlist = @playlist
-      if @playlist_song.save!
-        redirect_to playlist_path(@playlist)
-      else
-        render 'new'
-      end
+    params[:playlist_song][:song_id].each do |song|
+      next if song == ""
+      @song = Song.find(song.to_i)
+      @playlist_song = PlaylistSong.new
+      @playlist_song.song = @song
+      @playlist_song.playlist = @playlist
+      render 'new' unless @playlist_song.save!
+    end
+    redirect_to playlist_path(@playlist)
   end
 
   def destroy
@@ -19,9 +21,6 @@ class PlaylistSongsController < ApplicationController
 
     private
 
-    def playlist_song_params
-        params.require(:playlist_song).permit(:song_id, :playlist_id)
-    end
 
     def set_playlist_song
       @playlist_song = PlaylistSong.find(params[:id])
