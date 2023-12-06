@@ -1,45 +1,50 @@
+<!--display song name, artist and label-->
 <% if @song %>
-  <h1 class="your-playlists"><%= @song.name %></h1>
-   <div class="sidebar-list">
-    <%= link_to dashboard_path, class: "text-decoration-none" do %>
-    <%= image_tag("dashboard.svg", class: "me-3") %><%= @song.artist.name %>
+  <h1 class="song-name"><%= @song.name %></h1>
+  <div class="stats">
+    <%= link_to songs_path do %>
+      <%= image_tag("user-03.svg", class: "me-3") %>
+      <%= @song.artist.name %>
     <% end %>
-
-
-  <p>Artist: <%= @song.artist.name %></p>
-  <p>Label: <%= @song.label.name %></p>
-
-  <%= render "/shared/audio_player"%>
-
-  <audio controls>
-    <source src="<%= cl_video_path @song.audio_file.key, controls: true %>" type="audio/mp3">
-  </audio>
-
+    <%= link_to playlists_path do %>
+      <%= image_tag("label.svg", class: "me-3") %>
+      <%= @song.label.name  %>
+    <% end %>
+  </div>
 <% else %>
   <p>Song not found</p>
 <% end %>
 
 
-
-<p>
-  Tags:
+<!--display tags-->
+<div class="display-tags ms-5">
   <% if @song.tags.present? %>
     <% @song.tag_songs.each do |tag_song| %>
       <td><%= link_to image_tag("X.svg"),
               destroy_tag_path(tag_song),
               data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{@song.tags.where(id: tag_song.tag_id)[0].name}?"},
               class: 'text-danger' %></td>
-      <span class="tag"><%= link_to @song.tags.where(id: tag_song.tag_id)[0].name, tag_path(tag), style: 'text-decoration: none'%></span>
+      <span class="tag"><%= link_to "#{@song.tags.where(id: tag_song.tag_id)[0].name}", tags_path(tag), style: 'text-decoration: none'%></span>
     <% end %>
   <% else %>
     No tags added
   <% end %>
-</p>
+</div>
 
+
+<!--add tag-->
 <%= form_with(url: add_tag_song_path(@song), method: :post) do |form| %>
-  <%= form.label :tag_name, 'Add Tag:' %>
-  <%= form.text_field :tag_name %>
-  <%= form.submit 'Add' %>
+  <%= form.text_field :tag_name,
+      placeholder: '   Add your tags',
+      required: true,
+      class: "form-control-search text-box white w-25 m-5 p-1" %>
+  <div class="btn bgd-btn btn-lg">
+    <%= form.submit "Add Tag"%>
+  </div>
 <% end %>
 
-<%= link_to 'Back', songs_path %>
+
+<!--go back-->
+<div class="form-actions ms-5">
+  <%= link_to image_tag("back_arrow.png"), songs_path %>
+</div>

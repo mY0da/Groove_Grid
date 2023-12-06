@@ -1,8 +1,9 @@
-import { Controller } from "@hotwired/stimulus"
-import TomSelect from "tom-select"
+
+import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
   connect() {
-    new TomSelect(this.element, {})
+    console.log('oizão')
+    // new TomSelect(this.element, {})
   }
 }
