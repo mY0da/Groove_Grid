@@ -13,10 +13,10 @@ Rails.application.routes.draw do
   resources :songs do
     member do
       post 'add_tag'
-      post 'remove_tag'
+      # post 'remove_tag'
     end
-    resources :tag_songs, only: %i[destroy]
   end
+  resources :tag_songs, only: %i[destroy], as: "destroy_tag"
 
   resources :profiles, controller: 'profiles'
 

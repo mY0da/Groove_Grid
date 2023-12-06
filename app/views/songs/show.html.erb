@@ -16,10 +16,12 @@
 <p>
   Tags:
   <% if @song.tags.present? %>
-    <% @song.tags.each do |tag| %>
-      <% tag_song = TagSong.find_by(song: @song, tag: tag) %>
-      <%= link_to "X", remove_tag_song_path(tag_song), data: { turbo_method: :post, turbo_confirm: "Are you sure you want to remove #{tag.name} from your #{@song.name} playlist"}, class: 'text-danger' %>
-      <span class="tag"><%= link_to tag.name, tag_path(tag) %></span>
+    <% @song.tag_songs.each do |tag_song| %>
+      <td><%= link_to image_tag("X.svg"),
+              destroy_tag_path(tag_song),
+              data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{@song.tags.where(id: tag_song.tag_id)[0].name}?"},
+              class: 'text-danger' %></td>
+      <span class="tag"><%= link_to @song.tags.where(id: tag_song.tag_id)[0].name, tag_path(tag), style: 'text-decoration: none'%></span>
     <% end %>
   <% else %>
     No tags added
@@ -30,12 +32,6 @@
   <%= form.label :tag_name, 'Add Tag:' %>
   <%= form.text_field :tag_name %>
   <%= form.submit 'Add' %>
-<% end %>
-
-<%= form_with(url: remove_tag_song_path(@song), method: :post) do |form| %>
-  <%= form.label :tag_name, 'Remove Tag:' %>
-  <%= form.text_field :tag_name %>
-  <%= form.submit 'Remove' %>
 <% end %>
 
 <%= link_to 'Back', songs_path %>
