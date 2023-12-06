@@ -51,7 +51,7 @@ class SongsController < ApplicationController
   private
 
   def set_song
-    @song = Song.find(params[:id])
+    @song = Song.where(user: current_user).find(params[:id])
   end
 
   def song_params
