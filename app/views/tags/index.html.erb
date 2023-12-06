@@ -2,7 +2,7 @@
 <%= render "/shared/audio_player"%>
 <div class="song-table-container">
   <div class="playlists">
-    <% @tags.each do |tag| %>
+    <% @tags.uniq.each do |tag| %>
       <div class="glass-container-three m-2" data-controller="path-link" data-path="<%= tag_path(tag) %>">
         <%= link_to tag, style: 'text-decoration: none' do %>
           <%= image_tag "Sphere.png", class: "sphere"%>
