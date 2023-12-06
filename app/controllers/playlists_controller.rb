@@ -30,6 +30,15 @@ class PlaylistsController < ApplicationController
     redirect_to playlists_path, status: :see_other
   end
 
+  def search
+    # ADDED
+    if params[:query].present?
+      @playlists = Playlist.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @playlists = Playlist.all
+    end
+  end
+
   private
 
   def set_playlist
