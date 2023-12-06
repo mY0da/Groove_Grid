@@ -137,7 +137,7 @@ button {
 .container-search-bar {
   text-align: right;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .search-bar-wrapper {
@@ -152,4 +152,16 @@ button {
 .btn-search {
   margin-left: 10px;
   background-color: #3d44b3;
+}
+
+
+.bgd-btn-three{
+  padding: 6px 12px 6px 12px;
+  text-align: center;
+  border-radius: 32px;
+  background: #A2A5FC;
+  text-decoration: none;
+  :hover{
+  background: #777DE0;
+  };
 }

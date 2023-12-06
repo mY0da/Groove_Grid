@@ -1,9 +1,11 @@
-<div class="container">
-  <h1>Today's Rhythm</h1>
-  <%= render "/shared/audio_player"%>
+<h1 class="your-playlists">Your Playlists</h1>
+<%= render "/shared/audio_player"%>
 
+
+<div class="container">
   <p>
     <div class="container-search-bar">
+      <%= link_to "Add Song ", new_song_path, class: "bgd-btn-three"%>
       <%= form_tag songs_path, method: :get do %>
         <div class= "search-bar-wrapper">
           <%= text_field_tag :query,
