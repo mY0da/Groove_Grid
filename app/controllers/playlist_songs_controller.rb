@@ -29,5 +29,6 @@ class PlaylistSongsController < ApplicationController
 
     def set_playlist
       @playlist = Playlist.find(params[:playlist_id])
+      @playlist.user = current_user
     end
 end
