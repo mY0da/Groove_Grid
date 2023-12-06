@@ -1,7 +1,7 @@
 class TagsController < ApplicationController
 
   def index
-    @tags = Tag.all
+    @tags = Tag.joins(:profiles).where(profiles: { user: current_user })
   end
 
   def show
