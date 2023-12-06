@@ -40,12 +40,12 @@ connect() {
   }
 
   play() {
-    console.log('play');
+    // console.log('play');
     this.wavesurfer.play();
   }
 
   pause() {
-    console.log('pause');
+    // console.log('pause');
     this.wavesurfer.pause();
   }
 

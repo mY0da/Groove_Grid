@@ -1,8 +1,4 @@
 <%= render "/shared/audio_player"%>
-  <div class="controls d-flex">
-    <div data-action="click->music-player#play">  <%= image_tag 'play.svg', class: 'bang-button', alt: 'bang-button', size: '25x25' %></div>
-    <div data-action="click->music-player#pause">  <%= image_tag 'pause.svg', class: 'bang-button', alt: 'bang-button', size: '25x25' %></div>
-  </div>
 
 <%= form_with model: Playlist.new, url: playlists_path, multipart: true do |f| %>
   <%= f.label :name, class: "form-label label-box"%>

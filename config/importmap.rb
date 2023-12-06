@@ -59,3 +59,4 @@ pin "@cloudinary/transformation-builder-sdk/qualifiers/textDecoration", to: "htt
 pin "@cloudinary/transformation-builder-sdk/qualifiers/textStroke", to: "https://ga.jspm.io/npm:@cloudinary/transformation-builder-sdk@1.8.0/qualifiers/textStroke.js"
 pin "@cloudinary/transformation-builder-sdk/transformation/ImageTransformation", to: "https://ga.jspm.io/npm:@cloudinary/transformation-builder-sdk@1.8.0/transformation/ImageTransformation.js"
 pin "wavesurfer.js", to: "https://ga.jspm.io/npm:wavesurfer.js@7.4.12/dist/wavesurfer.js"
+pin "tom-select", to: "tom-select.js"

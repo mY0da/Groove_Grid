@@ -33,7 +33,7 @@
       <tbody>
         <% @songs.each do |song| %>
           <tr data-action="click->select#selectSong" data-song="<%= song.to_json %>" data-url="<%= cl_video_path song.audio_file.key || '' %>">
-            <td><%= link_to song.name, song_path(song), style: 'text-decoration: none' %></td>
+            <td class="songs-list"><%= link_to song.name, song_path(song), style: 'text-decoration: none' %></td>
             <td class="primary-lavender-2"><%= song.bpm %></td>
             <td class="grey"><%= song.artist.name %></td>
             <td class="primary-lavender-2"><%= song.scale %></td>
