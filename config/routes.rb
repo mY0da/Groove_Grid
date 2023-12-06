@@ -22,7 +22,11 @@ Rails.application.routes.draw do
 
   resources :playlists do
     resources :playlist_songs, only: %i[new create destroy]
+    collection do
+      get :search
+    end
   end
+
   resources :tags
   resources :playlist_songs, only: :destroy
-end
+  end
