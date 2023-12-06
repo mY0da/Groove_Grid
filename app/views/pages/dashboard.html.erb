@@ -2,43 +2,47 @@
   <div>
     <h1 class="dashboard">Your Dashboard</h1>
   </div>
+
   <div class="dashboard_container">
     <div class="glass-container-two">
       <h3 class="have">YOU HAVE</h3>
       <div class="stats">
         <%= link_to songs_path do %>
           <%= image_tag("songs.svg", class: "me-3") %>
-          <%= Song.count %> Songs
+          <%= current_user.songs.count %> Songs
         <% end %>
-        <%= link_to songs_path do %>
+        <%= link_to playlists_path do %>
           <%= image_tag("playlists.svg", class: "me-3") %>
-          <%= Playlist.count %> Playlists
+          <%= current_user.playlists.count %> Playlists
         <% end %>
       </div>
       <%= image_tag("chart.svg", class: "chart") %>
     </div>
 
-<div class="glass-container-two">
+    <div class="glass-container-two">
 
-  <h3 class="have">LAST SETS</h3>
-  <div class="stats">
-    <% if Playlist.all.length > 0 %>
-      <%= link_to playlist_path(Playlist.last) do %>
-        <%= image_tag("playlists.svg", class: "me-3") %>
-        <%= Playlist.last.name %>
-      <% end %>
-    <% elsif Playlist.all.length > 1 %>
-      <%= link_to playlist_path(Playlist.last) do %>
-        <%= image_tag("playlists.svg", class: "me-3") %>
-        <%= Playlist.last.name %>
-      <% end %>
-      <%= link_to playlist_path(Playlist[-2]) do %>
-        <%= image_tag("playlists.svg", class: "me-3") %>
-        <%= Playlist[-2].name %>
-      <% end %>
-    <% else %>
-      <p><em>No playlists!</em></p>
-    <% end %>
+      <h3 class="have">LAST SETS</h3>
+      <div class="stats">
+        <% if @playlists.any? %>
+          <% if @playlists.many? %>
+            <% @playlists.last(2).each do |playlist| %>
+              <%= link_to playlist_path(playlist) do %>
+                <%= image_tag("playlists.svg", class: "me-3") %>
+                <%= playlist.name %>
+              <% end %>
+            <% end %>
+          <% else %>
+            <%= link_to playlist_path(@playlists.last) do %>
+              <%= image_tag("playlists.svg", class: "me-3") %>
+              <%= @playlists.last.name %>
+            <% end %>
+          <% end %>
+        <% else %>
+          <p><em>No playlists!</em></p>
+        <% end %>
+
+      </div>
+      <%= image_tag("CD.svg", class: "cd") %>
+    </div>
   </div>
-  <%= image_tag("CD.svg", class: "cd") %>
 </div>
