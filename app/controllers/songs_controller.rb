@@ -37,8 +37,8 @@ class SongsController < ApplicationController
   end
 
   def add_tag
-    tag = Tag.find_or_create_by(name: params[:tag_name])
-    @song.tags << tag
+    @tag = Tag.find_or_create_by(name: params[:tag_name])
+    @song.tags << @tag
     redirect_to @song
   end
 
