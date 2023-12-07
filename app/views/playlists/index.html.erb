@@ -11,7 +11,7 @@
     <% @playlists.each do |playlist| %>
       <div class="glass-container-three m-2" data-controller="path-link" data-path="<%= playlist_path(playlist) %>">
         <%= link_to playlist, style: 'text-decoration: none' do %>
-          <%= image_tag "Sphere.png", class: "sphere"%>
+            <%= image_tag "Playlist/playlist #{session["playlist_image_#{playlist.id}"]}.jpg", class: 'sphere' %>
         <% end %>
         <div class="playlist-name">
           <%= playlist.name %>
