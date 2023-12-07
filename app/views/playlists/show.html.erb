@@ -72,8 +72,9 @@
 
 <!-- Delete playlist button -->
 <div class="delete-playlist-position">
-<%= link_to "Delete Playlist ", playlist_path(@playlist), class: "delete-playlist btn-search btn clear-btn btn white mr-2", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this playlist?" } %>
+  <%= link_to "Delete Playlist", playlist_path(@playlist), class: "delete-playlist btn-search btn clear-btn btn white mb-4", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this playlist?" } %>
 </div>
+
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {

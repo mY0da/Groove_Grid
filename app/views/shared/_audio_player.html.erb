@@ -2,12 +2,12 @@
 <div class="m-2">
   <div class="music-player-controller" style="display:none" data-controller="music-player" id="audio-player" data-turbo-permanent id="music-player">
     <div id="audio-player-wave"></div>
-    <div class="music-player-controls p-2" >
+    <div class="music-player-controls" >
       <div>  <%= image_tag 'skip-back.svg', class: 'bang-button', alt: 'bang-button', size: '30x30' %>
       </div>
-      <div data-action="click->music-player#play">  <%= image_tag 'play.svg', class: 'bang-button', alt: 'bang-button', size: '25x25' %>
+      <div data-action="click->music-player#play">  <%= image_tag 'play.svg', class: 'bang-button', alt: 'bang-button', size: '45x45' %>
       </div>
-      <div data-action="click->music-player#pause">  <%= image_tag 'pause.svg', class: 'bang-button', alt: 'bang-button', size: '25x25' %>
+      <div data-action="click->music-player#pause">  <%= image_tag 'pause.svg', class: 'bang-button', alt: 'bang-button', size: '45x45' %>
       </div>
       <div>  <%= image_tag 'skip-forward.svg', class: 'bang-button', alt: 'bang-button', size: '30x30' %>
       </div>

@@ -68,3 +68,13 @@ input[type=submit] {
   background-color: transparent;
   color: white;
 }
+
+
+.music-player-controls{
+  margin: 3px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  align-items: center;
+  padding-left: 20px;
+}

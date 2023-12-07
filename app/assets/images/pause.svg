@@ -1,3 +1,15 @@
-<svg width="16" height="29" viewBox="0 0 16 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M2.54297 0.5625V29H0.140625V0.5625H2.54297ZM15.607 0.5625V29H13.2047V0.5625H15.607Z" fill="#F5F7FA"/>
+<svg width="56" height="57" viewBox="0 0 56 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.3">
+<circle cx="28" cy="28.1667" r="25.25" fill="#CECECE" fill-opacity="0.3" style="mix-blend-mode:overlay"/>
+<circle cx="28" cy="28.1667" r="25.25" stroke="#777DE0" stroke-width="0.5"/>
+</g>
+<g opacity="0.3">
+<circle cx="28" cy="28.1667" r="25.25" fill="#CECECE" fill-opacity="0.3" style="mix-blend-mode:overlay"/>
+<circle cx="28" cy="28.1667" r="25.25" stroke="#777DE0" stroke-width="0.5"/>
+</g>
+<g opacity="0.3">
+<circle cx="28" cy="28.1667" r="26.5" fill="#CECECE" fill-opacity="0.3" style="mix-blend-mode:overlay"/>
+<circle cx="28" cy="28.1667" r="26.5" stroke="#777DE0" stroke-width="3"/>
+</g>
+<path d="M21.2639 40V15.15H25.1839V40H21.2639ZM30.8 40V15.15H34.72V40H30.8Z" fill="#F5F7FA"/>
 </svg>
