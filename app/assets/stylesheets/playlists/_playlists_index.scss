@@ -24,12 +24,6 @@
   margin-left: 7%;
 }
 
-.song-table-container {
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: row-reverse;
-}
-
 .sphere{
   border-radius: 10px;
   height: 150px;
@@ -37,6 +31,16 @@
   margin-top: 10%;
   object-fit:cover;
 }
+
+.sphere-tag{
+  border-radius: 10px;
+  height: 150px;
+  width: 200px;
+  margin-top: 10%;
+  object-fit:cover;
+}
+
+
 
 .playlist-name{
   color: #777DE0;

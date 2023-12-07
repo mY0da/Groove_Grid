@@ -4,3 +4,27 @@
   object-fit: cover;
   margin-top: 10%;
 }
+
+
+.delete-playlist{
+  width: 12%;
+  padding: 0%;
+  margin-left: 4%;
+  margin-top: 2%;
+  margin-left: 10px;
+  background-color: #3d44b3;
+}
+
+
+.delete-playlist-position{
+  display: flex;
+  justify-content: end;
+  margin-right: 2%;
+}
+
+
+.card-playlist{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

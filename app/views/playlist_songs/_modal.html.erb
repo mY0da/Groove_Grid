@@ -1,12 +1,11 @@
-<div class="w-75">
+<div class="w-75 m-4">
   <%= simple_form_for [playlist, playlist_song] do |f| %>
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center w-50">
       <div class="modal-body pe-3">
-        <%= f.label "Songs", class: "white" %>
-        <%= f.association :song, multiple: true, collection: Song.all.where(user: current_user).order(:name),class: "label-box", prompt: "Select a song", label: false, input_html: { data: { controller: "" } } %>
+        <%= f.association :song, multiple: true, collection: Song.all.where(user: current_user).order(:name),class: "text-box", prompt: "Select a song", label: false, input_html: { data: { controller: "" } } %>
       </div>
-      <%= image_submit_tag("addsong.svg") %>
     </div>
+      <%= f.submit "Add Song", class: "form-actions btn-search btn clear-btn btn white"%>
   <% end %>
 </div>
 
