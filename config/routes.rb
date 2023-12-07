@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "dashboard", to: "pages#dashboard", as: :dashboard
   get "welcome_page", to: "pages#welcome_page", as: :welcome_page
   get "welcome_video", to: "pages#welcome_video", as: :welcome_video
+  # get '/download_playlist' => 'playlists#download_mp3'
 
   resources :songs
 
@@ -22,8 +23,13 @@ Rails.application.routes.draw do
 
   resources :playlists do
     resources :playlist_songs, only: %i[new create destroy]
+
     collection do
       get :search
+    end
+
+    member do
+      get :download
     end
   end
 

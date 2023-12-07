@@ -83,3 +83,5 @@ group :test do
 end
 
 gem "wicked"
+
+gem 'rubyzip', require: 'zip'

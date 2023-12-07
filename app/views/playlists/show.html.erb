@@ -10,7 +10,7 @@
       <div class="card-playlist">
         <!-- Image  -->
         <div class="image-div">
-           <%= image_tag "Playlist/playlist #{@image_number}.jpg", class: 'sphere' %>
+          <%= image_tag "Playlist/playlist #{@image_number}.jpg", class: 'sphere' %>
         </div>
         <div class="card-body">
             <!-- Add Song form + button  -->
@@ -26,17 +26,12 @@
     </div>
   </div>
 
-  <div>
-    <!-- Download button -->
-    <button id="downloadButton" class= "delete-playlist btn-search btn clear-btn btn white m-3">Download Playlist</button>
-    <!-- Script from Download button -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+  <!-- Download button -->
+  <div class=" btn-search btn clear-btn btn white m-3">
+    <%= link_to "Download Playlist", download_playlist_path, class: "btn white" %>
   </div>
 
-
-
   <!-- Song tab  -->
-
   <div class ="song-table-container">
     <table style="width: 100%; table-layout: fixed;">
       <thead>
@@ -75,54 +70,3 @@
 <div class="delete-playlist-position">
   <%= link_to "Delete Playlist", playlist_path(@playlist), class: "delete-playlist btn-search btn clear-btn btn white mb-4", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this playlist?" } %>
 </div>
-
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Ajouter un gestionnaire de clic pour chaque bouton de téléchargement
-    document.querySelectorAll('.download-button').forEach(function(button) {
-      button.addEventListener('click', function() {
-        var playlistId = this.getAttribute('data-playlist');
-        downloadPlaylist(playlistId);
-      });
-    });
-
-    function downloadPlaylist(playlistId) {
-      // Récupérer les informations de la playlist depuis votre backend (adapté à votre logique)
-      fetch("/api/playlist/" + playlistId) // Remplacez cette URL par l'URL réelle de votre API
-        .then(response => response.json())
-        .then(playlistData => {
-          // Créer une instance JSZip
-          var zip = new JSZip();
-
-          // Ajouter chaque fichier de la playlist au zip
-          playlistData.songs.forEach(function(song) {
-            // Assurez-vous que votre backend fournit le lien correct vers le fichier audio
-            zip.file(song.name + ".mp3", song.audioLink);
-          });
-
-          // Générer le fichier zip
-          zip.generateAsync({ type: "blob" })
-            .then(function(content) {
-              // Créer un objet URL pour le contenu du fichier zip
-              var zipUrl = URL.createObjectURL(content);
-
-              // Créer un lien invisible pour le téléchargement
-              var link = document.createElement('a');
-              link.href = zipUrl;
-              link.download = playlistData.name + '.zip';
-
-              // Ajouter le lien au document
-              document.body.appendChild(link);
-
-              // Déclencher le clic sur le lien pour démarrer le téléchargement
-              link.click();
-
-              // Retirer le lien du document après le téléchargement
-              document.body.removeChild(link);
-            });
-        })
-        .catch(error => console.error('Error fetching playlist data:', error));
-    }
-  });
-</script>
