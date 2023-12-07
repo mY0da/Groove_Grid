@@ -1,10 +1,21 @@
 
-<div data-controller="music-player" id="audio-player" data-turbo-permanent id="music-player">
-  <div class="controls d-flex">
-    <div data-action="click->music-player#play">  <%= image_tag 'play.svg', class: 'bang-button', alt: 'bang-button', size: '25x25' %></div>
-    <div data-action="click->music-player#pause">  <%= image_tag 'pause.svg', class: 'bang-button', alt: 'bang-button', size: '25x25' %></div>
-  </div>
-  <div class="ps-3" data-target="music-player.currentSong">
-    Currently Playing: <span class="currently-playing" data-music-player-target="currentSong"></span>
+<div class="m-2">
+  <div class="music-player-controller" style="display:none" data-controller="music-player" id="audio-player" data-turbo-permanent id="music-player">
+    <div id="audio-player-wave"></div>
+    <div class="music-player-controls p-2" >
+      <div>  <%= image_tag 'skip-back.svg', class: 'bang-button', alt: 'bang-button', size: '30x30' %>
+      </div>
+      <div data-action="click->music-player#play">  <%= image_tag 'play.svg', class: 'bang-button', alt: 'bang-button', size: '25x25' %>
+      </div>
+      <div data-action="click->music-player#pause">  <%= image_tag 'pause.svg', class: 'bang-button', alt: 'bang-button', size: '25x25' %>
+      </div>
+      <div>  <%= image_tag 'skip-forward.svg', class: 'bang-button', alt: 'bang-button', size: '30x30' %>
+      </div>
+    </div>
+    <p>
+    <div class="ps-3" data-target="music-player.currentSong">
+      Currently Playing: <span class="currently-playing" data-music-player-target="currentSong"></span>
+    </div>
+    </p>
   </div>
 </div>
