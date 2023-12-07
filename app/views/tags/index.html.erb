@@ -1,11 +1,11 @@
-<h1 class="your-playlists">Your tags</h1>
+<h1 class="your-playlists mt-3">Your Tags</h1>
 <%= render "/shared/audio_player"%>
 <div class="song-table-container">
   <div class="playlists">
     <% @tags.uniq.each do |tag| %>
       <div class="glass-container-three m-2" data-controller="path-link" data-path="<%= tag_path(tag) %>">
         <%= link_to tag, style: 'text-decoration: none' do %>
-          <%= image_tag "Tags/tag #{rand(1..8)}", class: "sphere-tag"%>
+          <%= image_tag "Tags/tag #{session["tag_image_#{tag.id}"]}.png", class: 'sphere-tag' %>
         <% end %>
         <div class="playlist-name fs-4">
           <%= tag.name %>

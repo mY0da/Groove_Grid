@@ -23,7 +23,7 @@ class SongsController < ApplicationController
     @song.name = params[:song][:audio_file].original_filename
 
     if @song.save
-      redirect_to song_path(@song)
+      redirect_to songs_path
     else
       render :new, status: :unprocessable_entity
     end

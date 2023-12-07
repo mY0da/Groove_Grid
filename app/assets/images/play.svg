@@ -1,3 +1,15 @@
-<svg width="26" height="34" viewBox="0 0 26 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.33398 5.31618C1.33398 3.69757 1.33398 2.88827 1.67147 2.44215C1.96548 2.0535 2.41485 1.813 2.90131 1.78396C3.45971 1.75062 4.13309 2.19954 5.47985 3.09738L23.0058 14.7813C24.1186 15.5232 24.675 15.8941 24.8689 16.3617C25.0384 16.7704 25.0384 17.2298 24.8689 17.6386C24.675 18.1061 24.1186 18.4771 23.0058 19.2189L5.47985 30.9029C4.13309 31.8007 3.45971 32.2496 2.90131 32.2163C2.41485 32.1873 1.96548 31.9468 1.67147 31.5581C1.33398 31.112 1.33398 30.3027 1.33398 28.6841V5.31618Z" stroke="#F5F7FA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.3">
+<circle cx="28" cy="28" r="25.25" fill="#CECECE" fill-opacity="0.3" style="mix-blend-mode:overlay"/>
+<circle cx="28" cy="28" r="25.25" stroke="#777DE0" stroke-width="0.5"/>
+</g>
+<g opacity="0.3">
+<circle cx="28" cy="28" r="25.25" fill="#CECECE" fill-opacity="0.3" style="mix-blend-mode:overlay"/>
+<circle cx="28" cy="28" r="25.25" stroke="#777DE0" stroke-width="0.5"/>
+</g>
+<g opacity="0.3">
+<circle cx="28" cy="28" r="26.5" fill="#CECECE" fill-opacity="0.3" style="mix-blend-mode:overlay"/>
+<circle cx="28" cy="28" r="26.5" stroke="#777DE0" stroke-width="3"/>
+</g>
+<path d="M20.2917 18.2765C20.2917 16.8603 20.2917 16.1521 20.587 15.7618C20.8443 15.4217 21.2375 15.2113 21.6632 15.1858C22.1518 15.1567 22.741 15.5495 23.9194 16.3351L39.2546 26.5585C40.2283 27.2077 40.7151 27.5323 40.8848 27.9414C41.0331 28.299 41.0331 28.701 40.8848 29.0586C40.7151 29.4677 40.2283 29.7923 39.2546 30.4414L23.9194 40.6649C22.741 41.4505 22.1518 41.8433 21.6632 41.8141C21.2375 41.7887 20.8443 41.5783 20.587 41.2382C20.2917 40.8479 20.2917 40.1397 20.2917 38.7235V18.2765Z" fill="#F5F7FA" stroke="#F5F7FA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

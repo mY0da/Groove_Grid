@@ -1,4 +1,4 @@
-<h1 class="your-playlists">Your Songs</h1>
+<h1 class="your-playlists mt-3">Your Songs</h1>
 <%= render "/shared/audio_player"%>
 
 
@@ -29,14 +29,14 @@
           <th class="td:first-child">Song title</th>
           <th class="primary-lavender-4">BPM</th>
           <th>Artist</th>
-          <th class="primary-lavender-4">Scale</th>
+          <th class="primary-lavender-4">Key</th>
           <th>Duration</th>
           <th class="primary-lavender-4">Genre</th>
           <th>Delete</th>
         </tr>
       </thead>
       <tbody>
-        <% @songs.each do |song| %>
+        <% @songs.reverse_each do |song| %>
           <tr data-action="click->select#selectSong" data-song="<%= song.to_json %>" data-url="<%= cl_video_path song.audio_file.key || '' %>">
             <td class="songs-list"><%= link_to song.name, song_path(song), style: 'text-decoration: none' %></td>
             <td class="primary-lavender-2"><%= song.bpm %></td>
