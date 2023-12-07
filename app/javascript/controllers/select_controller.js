@@ -13,8 +13,11 @@ export default class extends Controller {
     const songInfo = JSON.parse(songJSON);
     const currentlyPlaying = document.querySelector(".currently-playing");
     currentlyPlaying.innerText = songInfo['name'];
-    
+
     const wavesurfer = document.querySelector('#audio-player').musicPlayer.wavesurfer
     wavesurfer.load(songUrl);
+
+    const audioPlayer = document.querySelector('#audio-player');
+    audioPlayer.style.display = "";
   }
 }

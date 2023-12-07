@@ -28,7 +28,7 @@ connect() {
       this.audioUrl = "";
 
       this.wavesurfer = WaveSurfer.create({
-        container: document.querySelector("#audio-player"),
+        container: document.querySelector("#audio-player-wave"),
         waveColor: '#777DE0',
         progressColor: '#3D44B3',
         url: this.audioUrl
