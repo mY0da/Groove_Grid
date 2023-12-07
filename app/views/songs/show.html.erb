@@ -1,51 +1,54 @@
-<!--display song name, artist and label-->
 <%= render "/shared/audio_player"%>
-<% if @song %>
-  <h1 class="song-name"><%= @song.name %></h1>
-  <div class="stats">
-    <%= link_to songs_path do %>
-      <%= image_tag("user-03.svg", class: "me-3") %>
-      <%= @song.artist.name %>
+<div class= "container">
+  <div class="card mb-3" style="background: rgba(28, 27, 23, 0.3); backdrop-filter: blur(16px);">
+    <!--display song name, artist and label-->
+    <% if @song %>
+      <h1 class="song-name mt-3"><%= @song.name %></h1>
+      <div class="stats">
+        <%= link_to songs_path do %>
+          <%= image_tag("user-03.svg", class: "me-3") %>
+          <%= @song.artist.name %>
+        <% end %>
+        <%= link_to playlists_path do %>
+          <%= image_tag("label.svg", class: "me-3") %>
+          <%= @song.label.name  %>
+        <% end %>
+      </div>
+    <% else %>
+      <p>Song not found</p>
     <% end %>
-    <%= link_to playlists_path do %>
-      <%= image_tag("label.svg", class: "me-3") %>
-      <%= @song.label.name  %>
-    <% end %>
+
+
+    <!--display tags-->
+    <div class="display-tags ms-5 mb-3">
+      <% if @song.tags.present? %>
+        <% @song.tag_songs.each do |tag_song| %>
+          <span class="tag me-3">
+            <%= link_to image_tag("X_2.svg"),
+                  destroy_tag_path(tag_song),
+                  data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{@song.tags.where(id: tag_song.tag_id)[0].name}?"},
+                  class: 'text-danger pe-2' %>
+            <%= link_to "#{@song.tags.where(id: tag_song.tag_id)[0].name}", tag_path(tag_song.tag_id), style: 'text-decoration: none'%>
+          </span>
+        <% end %>
+      <% else %>
+        No tags added
+      <% end %>
+    </div>
   </div>
-<% else %>
-  <p>Song not found</p>
-<% end %>
-
-
-<!--display tags-->
-<div class="display-tags ms-5">
-  <% if @song.tags.present? %>
-    <% @song.tag_songs.each do |tag_song| %>
-      <span class="tag">
-        <%= link_to image_tag("X_2.svg"),
-              destroy_tag_path(tag_song),
-              data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{@song.tags.where(id: tag_song.tag_id)[0].name}?"},
-              class: 'text-danger' %>
-        <%= link_to "#{@song.tags.where(id: tag_song.tag_id)[0].name}", tag_path(tag_song.tag_id), style: 'text-decoration: none'%>
-      </span>
-    <% end %>
-  <% else %>
-    No tags added
-  <% end %>
 </div>
-
 
 <!--add tag-->
 <%= form_with(url: add_tag_song_path(@song), method: :post) do |form| %>
   <%= form.text_field :tag_name,
       placeholder: '   Add your tags',
       required: true,
-      class: "form-control-search text-box white w-25 m-5 p-1" %>
-  <div class="btn bgd-btn btn-lg">
+      class: "form-control-search text-box white w-25 m-5 p-1",
+      style: "background: rgba(28, 27, 23, 0.3); backdrop-filter: blur(16px);" %>
+  <div class="btn white">
     <%= form.submit "Add Tag"%>
   </div>
 <% end %>
-
 
 <!--go back-->
 <div class="form-actions ms-5">
