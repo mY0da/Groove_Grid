@@ -6,8 +6,7 @@
 }
 
 .song-table-container {
-
-  max-height: 600px; /* Set the desired maximum height */
+  height: 400px;
   overflow-y: auto; /* Enable vertical scrollbar */
   table-layout: auto;
   display: flex;
