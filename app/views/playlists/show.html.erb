@@ -4,51 +4,52 @@
 <div class="container">
   <!-- Container Introduction (with image / Add Song form + button/ Download and Delete button ) -->
   <div class="card mb-3" style="background: rgba(28, 27, 23, 0.3); backdrop-filter: blur(16px);">
-    <div class="row g-0 p-3">
+    <div class="p-3">
           <h1><%= @playlist.name %></h1>
-      <div class="col-md-4">
+      <div class="card-playlist">
         <!-- Image  -->
-        <%= image_tag "Sphere.png", class: "sphere-for-playlist", style: "width: 200px; height: 150px;"%>
-      </div>
-        <div class="col-md-8">
-          <div class="card-body">
+        <div class="image-div">
+          <%= image_tag "Sphere.png", class: "sphere-for-playlist", style: "width: 200px; height: 150px;"%>
+        </div>
+        <div class="card-body">
             <!-- Add Song form + button  -->
-            <div class = playlist-song-list >
+            <div class = "playlist-song-list mt-2" >
               <%= render "playlist_songs/modal", playlist: @playlist, playlist_song: @playlist_song %>
             </div>
             <div class="d-flex align-items-end">
               <%= form_tag playlist_path(@playlist), method: :get do %>
-                          <!-- Download button -->
-              <button id="downloadButton" class= "form-actions btn-search btn clear-btn btn white ">Download Playlist</button>
-              <!-- Script from Download button -->
-              <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
-              <!-- Delete playlist button -->
-              <p>
-              <%= link_to image_tag("trash.svg") , playlist_path(@playlist), class: "ms-3", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this playlist?" } %>
-              </p>
               <% end %>
             </div>
-          </div>
         </div>
-      </div>
+        </div>
+    </div>
   </div>
 
+
+  <!-- Download button -->
+  <button id="downloadButton" class= "delete-playlist btn-search btn clear-btn btn white m-3">Download Playlist</button>
+  <!-- Script from Download button -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+
+
+
+
   <!-- Song tab  -->
-  <p>
-    <div class ="song-table-container">
-      <table>
-        <thead>
-          <tr>
-            <th>Song title</th>
-            <th class="primary-lavender-4">BPM</th>
-            <th>Artist</th>
-            <th class="primary-lavender-4">Scale</th>
-            <th>Duration</th>
-            <th class="primary-lavender-4">Genre</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
+
+  <div class ="song-table-container">
+    <table style="width: 100%; table-layout: fixed;">
+      <thead>
+        <tr>
+          <th class="td:first-child">Song title</th>
+          <th class="primary-lavender-4">BPM</th>
+          <th>Artist</th>
+          <th class="primary-lavender-4">Scale</th>
+          <th>Duration</th>
+          <th class="primary-lavender-4">Genre</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
         <% @playlist.songs.each do |song| %>
           <% playlist_song = PlaylistSong.find_by(playlist: @playlist, song: song) %>
           <tr data-action="click->select#selectSong" data-song="<%= song.to_json %>" data-url="<%= cl_video_path song.audio_file.key || '' %>">
@@ -63,10 +64,15 @@
             <td><%= link_to image_tag("X.svg"), playlist_song_path(playlist_song), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{song.name} from your #{@playlist.name} playlist"}, class: 'text-danger' %></td>
           </tr>
         <% end %>
-        <tbody>
-      </table>
-    </div>
-  </p>
+      <tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- Delete playlist button -->
+<div class="delete-playlist-position">
+<%= link_to "Delete Playlist ", playlist_path(@playlist), class: "delete-playlist btn-search btn clear-btn btn white mr-2", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this playlist?" } %>
 </div>
 
 <script>
