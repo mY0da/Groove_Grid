@@ -5,7 +5,9 @@
 <div class="container">
   <p>
     <div class="container-search-bar">
-      <%= link_to "Add Song ", new_song_path, class: "form-actions btn-search btn clear-btn btn white"%>
+      <div class="form-actions btn-search btn clear-btn">
+        <%= link_to "Add Song ", new_song_path, class: "btn white"%>
+      </div>
       <%= form_tag songs_path, method: :get do %>
         <div class= "search-bar-wrapper">
           <%= text_field_tag :query,
