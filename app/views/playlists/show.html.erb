@@ -1,3 +1,4 @@
+<h1 class="your-playlists mt-3">Your Playlists</h1>
 <%= render "/shared/audio_player"%>
 
 
@@ -13,7 +14,7 @@
         </div>
         <div class="card-body">
             <!-- Add Song form + button  -->
-            <div class = "playlist-song-list mt-2" >
+              <div class = "playlist-song-list mt-2" >
               <%= render "playlist_songs/modal", playlist: @playlist, playlist_song: @playlist_song %>
             </div>
             <div class="d-flex align-items-end">
@@ -25,12 +26,12 @@
     </div>
   </div>
 
-
-  <!-- Download button -->
-  <button id="downloadButton" class= "delete-playlist btn-search btn clear-btn btn white m-3">Download Playlist</button>
-  <!-- Script from Download button -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
-
+  <div>
+    <!-- Download button -->
+    <button id="downloadButton" class= "delete-playlist btn-search btn clear-btn btn white m-3">Download Playlist</button>
+    <!-- Script from Download button -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+  </div>
 
 
 
