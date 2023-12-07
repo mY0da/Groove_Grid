@@ -7,9 +7,12 @@
 
 .song-table-container {
 
-  max-height: 400px; /* Set the desired maximum height */
+  max-height: 600px; /* Set the desired maximum height */
   overflow-y: auto; /* Enable vertical scrollbar */
   table-layout: auto;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
 
   table, th, td, tr {
     top: 10px;
