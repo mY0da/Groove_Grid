@@ -3,10 +3,16 @@ class PlaylistsController < ApplicationController
 
   def index
     @playlists = current_user.playlists
+
+    @playlists.each do |playlist|
+      session["playlist_image_#{playlist.id}"] ||= generate_unique_random_image(playlist.id)
+      playlist.save
+    end
   end
 
   def show
     @playlist_song = PlaylistSong.new
+    @image_number = session["playlist_image_#{params[:id]}"]
     render :show
   end
 
@@ -46,6 +52,15 @@ class PlaylistsController < ApplicationController
   end
 
   def playlist_params
-    params.require(:playlist).permit(:name)
+    params.require(:playlist).permit(:name, :photo)
+  end
+
+  def generate_unique_random_image(playlist_id)
+    random_image = rand(1..7)
+    while session.values.include?(random_image)
+      random_image = rand(1..7)
+    end
+
+    session["playlist_image_#{playlist_id}"] = random_image
   end
 end

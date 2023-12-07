@@ -5,7 +5,7 @@
     <% @tags.uniq.each do |tag| %>
       <div class="glass-container-three m-2" data-controller="path-link" data-path="<%= tag_path(tag) %>">
         <%= link_to tag, style: 'text-decoration: none' do %>
-          <%= image_tag "light-sphere.png", class: "sphere"%>
+          <%= image_tag "Tags/tag #{rand(1..8)}", class: "sphere-tag"%>
         <% end %>
         <div class="playlist-name fs-4">
           <%= tag.name %>
