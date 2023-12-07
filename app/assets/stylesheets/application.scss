@@ -43,12 +43,20 @@ input::placeholder, input[type=text]::placeholder {
   color: rgb(135, 135, 135);
 }
 
-/* Responsive styles for smaller screens */
-@media screen and (max-width: 768px) {
-  /* Adjust styles for smaller screens here */
+/* Responsive styles */
+@media(max-width: 992px) {
+  .song-table-container{
+    max-height: 550px;
+  }
 }
 
-/* Responsive styles for even smaller screens */
-@media screen and (max-width: 480px) {
+@media(max-width: 768px) {
+  /* Adjust styles for smaller screens here */
+  .song-table-container{
+    max-height: 400px;
+  }
+}
+
+@media(max-width: 480px) {
   /* Adjust styles for even smaller screens here */
 }
