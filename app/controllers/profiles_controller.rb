@@ -27,7 +27,7 @@ class ProfilesController < ApplicationController
   end
 
   def finish_wizard_path
-    root_path
+    welcome_page_path
     ##new tagprofile path
   end
 
