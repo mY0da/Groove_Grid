@@ -32,7 +32,7 @@
           </span>
         <% end %>
       <% else %>
-        No tags added
+      <p class="white fs-6">No tags added</p>
       <% end %>
     </div>
   </div>
@@ -45,8 +45,8 @@
       required: true,
       class: "form-control-search text-box white w-25 m-5 p-1",
       style: "background: rgba(28, 27, 23, 0.3); backdrop-filter: blur(16px);" %>
-  <div class="btn white">
-    <%= form.submit "Add Tag"%>
+  <div class="form-actions btn-search btn clear-btn">
+    <%= form.submit "Add Tag", class: "btn white"%>
   </div>
 <% end %>
 
