@@ -31,3 +31,8 @@
     </table>
   </div>
 </div>
+
+<!-- Delete tag button -->
+<div class="delete-playlist-position">
+  <%= link_to "Delete Tag", tag_path(@tag), class: "delete-playlist btn-search btn clear-btn btn white mb-4", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this tag?" } %>
+</div>
