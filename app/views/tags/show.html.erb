@@ -2,6 +2,19 @@
 <%= render "/shared/audio_player"%>
 
 <div class="container">
+
+  <div class="d-flex justify-content-between">
+    <!-- Download button -->
+    <div class=" btn-search btn clear-btn btn white m-3">
+      <%= link_to "Download #{@tag.name.capitalize} Songs", download_playlist_path, class: "btn white" %>
+    </div>
+
+    <!-- New playlist button -->
+    <div class=" btn-search btn clear-btn btn white m-3">
+      <%= link_to "New Playlist", new_playlist_path, class: "btn white" %>
+    </div>
+  </div>
+
   <div class ="song-table-container mt-4">
     <table style="width: 100%; table-layout: fixed;">
       <thead>
